@@ -1,0 +1,72 @@
+
+============================================================
+Candidate: WBP_PlayerUI_C
+ResolvedClass: WBP_PlayerUI_C
+Object: WBP_PlayerUI_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PlayerUI_C_2147471148
+Class: WBP_PlayerUI_C
+Field: UnknownProperty                                  Type: UnknownType
+Property iteration failed on this object.
+============================================================
+
+============================================================
+Candidate: WBP_WorldMap_IconBase_NoDesign_C
+ResolvedClass: WBP_Map_IconBoss_C
+Object: WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147460138
+Class: WBP_Map_IconBoss_C
+Field: UnknownProperty                                  Type: UnknownType
+Property iteration failed on this object.
+============================================================
+
+============================================================
+Candidate: WBP_WorldMap_IconBase_NoDesign_C
+ResolvedClass: WBP_Map_IconTower_C
+Object: WBP_Map_IconTower_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconTower_C_2147458963
+Class: WBP_Map_IconTower_C
+Field: UnknownProperty                                  Type: UnknownType
+Property iteration failed on this object.
+============================================================
+
+============================================================
+Candidate: WBP_WorldMap_IconBase_NoDesign_C
+ResolvedClass: WBP_Map_StandAloneBossIcon_C
+Object: WBP_Map_StandAloneBossIcon_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_StandAloneBossIcon_C_2147458923
+Class: WBP_Map_StandAloneBossIcon_C
+Field: UnknownProperty                                  Type: UnknownType
+Property iteration failed on this object.
+============================================================
+
+============================================================
+Candidate: WBP_WorldMap_IconBase_NoDesign_C
+ResolvedClass: WBP_Map_IconFTTower_C
+Object: WBP_Map_IconFTTower_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconFTTower_C_2147458898
+Class: WBP_Map_IconFTTower_C
+Field: UnknownProperty                                  Type: UnknownType
+Property iteration failed on this object.
+============================================================
+
+============================================================
+Candidate: WBP_WorldMap_IconBase_NoDesign_C
+ResolvedClass: WBP_Map_IconPortal_C
+Object: WBP_Map_IconPortal_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconPortal_C_2147458138
+Class: WBP_Map_IconPortal_C
+Field: UnknownProperty                                  Type: UnknownType
+Property iteration failed on this object.
+============================================================
+
+============================================================
+Candidate: WBP_WorldMap_IconBase_NoDesign_C
+ResolvedClass: WBP_Map_IconQuest_C
+Object: WBP_Map_IconQuest_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconQuest_C_2147457968
+Class: WBP_Map_IconQuest_C
+Field: UnknownProperty                                  Type: UnknownType
+Property iteration failed on this object.
+============================================================
+
+============================================================
+Candidate: WBP_WorldMap_IconBase_NoDesign_C
+ResolvedClass: WBP_Map_IconPlayer_C
+Object: WBP_Map_IconPlayer_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconPlayer_C_2147457962
+Class: WBP_Map_IconPlayer_C
+Field: UnknownProperty                                  Type: UnknownType
+Property iteration failed on this object.
+============================================================

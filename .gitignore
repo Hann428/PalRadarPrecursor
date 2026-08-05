@@ -1,0 +1,17 @@
+# OS / System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# UE4SS / Logs & Dumps
+*.log
+*.tmp
+UE4SS.log
+
+# IDE & Editor configs
+.vscode/
+.idea/
+
+# Local build / Backup artifacts
+*.bak
+*.zip

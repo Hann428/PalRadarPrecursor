@@ -1,0 +1,15 @@
+2026-07-19 10:16:08 | Injection attempt for WBP_Map_Base_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147461372
+2026-07-19 10:16:08 | AddCustomIcon Location:native IconType=1 | added=true | detail=Direct:AddCustomIcon result=nil | guid=(1346456658,1784427368,26881000,1296126001) | loc=(-336590.7, 295499.0, 8435.2)
+2026-07-19 10:20:40 | Injection attempt for WBP_Map_Base_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147461424
+2026-07-19 10:20:40 | AddCustomIcon marker=1 IconType=1 | added=true | detail=Direct:AddCustomIcon result=nil | guid=(1346456658,1784427641,28123000,1296126001) | loc=(-311590.7, 320499.0, 8435.2)
+2026-07-19 10:20:40 | AddCustomIcon marker=2 IconType=2 | added=true | detail=Direct:AddCustomIcon result=nil | guid=(1346456658,1784427642,28125000,1296126001) | loc=(-286590.7, 320499.0, 8435.2)
+2026-07-19 10:20:40 | AddCustomIcon marker=3 IconType=3 | added=true | detail=Direct:AddCustomIcon result=nil | guid=(1346456658,1784427643,28128000,1296126001) | loc=(-311590.7, 345499.0, 8435.2)
+2026-07-19 10:20:40 | AddCustomIcon marker=4 IconType=4 | added=true | detail=Direct:AddCustomIcon result=nil | guid=(1346456658,1784427644,28130000,1296126001) | loc=(-336590.7, 320499.0, 8435.2)
+2026-07-19 10:20:40 | AddCustomIcon marker=5 IconType=5 | added=true | detail=Direct:AddCustomIcon result=nil | guid=(1346456658,1784427645,28133000,1296126001) | loc=(-311590.7, 295499.0, 8435.2)
+2026-07-19 10:25:20 | Injection attempt for WBP_Map_Base_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147461347
+2026-07-19 10:25:20 | Location manager: BP_PalLocationManager_C /Game/Pal/Maps/MainWorld_5/PL_MainWorld5.PL_MainWorld5:BP_PalLocationManager_C_2147481364 source=BP_PalLocationManager_C
+2026-07-19 10:25:20 | AddLocalCustomMarker marker=1 IconIndex=0 | added=true | detail=Direct:AddLocalCustomMarker result=table:table: 000001F07AB687F0 | loc=(-311527.3, 320479.1, 8440.8)
+2026-07-19 10:25:20 | AddLocalCustomMarker marker=2 IconIndex=1 | added=true | detail=Direct:AddLocalCustomMarker result=table:table: 000001EF0F8AC3B0 | loc=(-286527.3, 320479.1, 8440.8)
+2026-07-19 10:25:20 | AddLocalCustomMarker marker=3 IconIndex=2 | added=true | detail=Direct:AddLocalCustomMarker result=table:table: 000001EF0F8AC6B0 | loc=(-311527.3, 345479.1, 8440.8)
+2026-07-19 10:25:20 | AddLocalCustomMarker marker=4 IconIndex=3 | added=true | detail=Direct:AddLocalCustomMarker result=table:table: 000001F02FF6A9B0 | loc=(-336527.3, 320479.1, 8440.8)
+2026-07-19 10:25:20 | AddLocalCustomMarker marker=5 IconIndex=4 | added=true | detail=Direct:AddLocalCustomMarker result=table:table: 000001F02FF6BDB0 | loc=(-311527.3, 295479.1, 8440.8)

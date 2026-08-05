@@ -1,0 +1,80 @@
+
+============================================================
+Candidate: WBP_Map_Body_C
+ResolvedClass: WBP_Map_Body_C
+Count: 2
+FirstObject: WBP_Map_Body_C /Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Base.WBP_Map_Base_C:WidgetTree.WBP_Map_Body_MW5
+FirstAddress: 1769681549856
+============================================================
+
+============================================================
+Candidate: WBP_PlayerUI_C
+ResolvedClass: WBP_PlayerUI_C
+Count: 1
+FirstObject: WBP_PlayerUI_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PlayerUI_C_2147471180
+FirstAddress: 1769526596288
+============================================================
+
+============================================================
+Candidate: WBP_Map_Base_C
+ResolvedClass: WBP_Map_Base_C
+Count: 1
+FirstObject: WBP_Map_Base_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147461282
+FirstAddress: 1769657441184
+============================================================
+
+============================================================
+Candidate: WBP_WorldMap_IconBase_NoDesign_C
+ResolvedClass: WBP_Map_IconBoss_C
+Count: 368
+FirstObject: WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147461146
+FirstAddress: 1769752002688
+============================================================
+
+============================================================
+Candidate: WBP_Map_StandAloneBossIcon_C
+ResolvedClass: WBP_Map_StandAloneBossIcon_C
+Count: 5
+FirstObject: WBP_Map_StandAloneBossIcon_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_StandAloneBossIcon_C_2147459931
+FirstAddress: 1772438321744
+============================================================
+
+============================================================
+Candidate: WBP_Map_IconPortal_C
+ResolvedClass: WBP_Map_IconPortal_C
+Count: 20
+FirstObject: WBP_Map_IconPortal_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconPortal_C_2147459146
+FirstAddress: 1771952799808
+============================================================
+
+============================================================
+Candidate: WBP_Map_IconFTTower_C
+ResolvedClass: WBP_Map_IconFTTower_C
+Count: 174
+FirstObject: WBP_Map_IconFTTower_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconFTTower_C_2147459906
+FirstAddress: 1772411279184
+============================================================
+
+============================================================
+Candidate: WBP_Map_IconTower_C
+ResolvedClass: WBP_Map_IconTower_C
+Count: 8
+FirstObject: WBP_Map_IconTower_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconTower_C_2147459971
+FirstAddress: 1772202092736
+============================================================
+
+============================================================
+Candidate: WBP_Map_IconQuest_C
+ResolvedClass: WBP_Map_IconQuest_C
+Count: 1
+FirstObject: WBP_Map_IconQuest_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconQuest_C_2147458976
+FirstAddress: 1772198285696
+============================================================
+
+============================================================
+Candidate: WBP_Map_IconPlayer_C
+ResolvedClass: WBP_Map_IconPlayer_C
+Count: 1
+FirstObject: WBP_Map_IconPlayer_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconPlayer_C_2147458970
+FirstAddress: 1772726077216
+============================================================

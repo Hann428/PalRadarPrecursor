@@ -1,0 +1,450 @@
+﻿[
+    {
+        "role":  "FastTravel",
+        "group":  "StaticMap/Compass",
+        "file":  "StaticMap/Compass/T_icon_compass_FTtower.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\UI\\InGame\\T_icon_compass_FTtower.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/UI/InGame/T_icon_compass_FTtower",
+        "sizeBytes":  4550
+    },
+    {
+        "role":  "MapUnlock",
+        "group":  "StaticMap/Compass",
+        "file":  "StaticMap/Compass/T_icon_compass_FTUnlockMap.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\UI\\InGame\\T_icon_compass_FTUnlockMap.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/UI/InGame/T_icon_compass_FTUnlockMap",
+        "sizeBytes":  5596
+    },
+    {
+        "role":  "BossTower",
+        "group":  "StaticMap/Compass",
+        "file":  "StaticMap/Compass/T_icon_compass_tower.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\UI\\InGame\\T_icon_compass_tower.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/UI/InGame/T_icon_compass_tower",
+        "sizeBytes":  7212
+    },
+    {
+        "role":  "BossTowerAlternative",
+        "group":  "StaticMap/Compass",
+        "file":  "StaticMap/Compass/T_icon_compass_BossGate.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\UI\\InGame\\T_icon_compass_BossGate.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/UI/InGame/T_icon_compass_BossGate",
+        "sizeBytes":  4619
+    },
+    {
+        "role":  "Boss",
+        "group":  "StaticMap/Compass",
+        "file":  "StaticMap/Compass/T_icon_compass_boss.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\UI\\InGame\\T_icon_compass_boss.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/UI/InGame/T_icon_compass_boss",
+        "sizeBytes":  2452
+    },
+    {
+        "role":  "BossAlternative",
+        "group":  "StaticMap/Compass",
+        "file":  "StaticMap/Compass/T_icon_compass_Boss_Unknown.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\UI\\Map\\T_icon_compass_Boss_Unknown.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/UI/Map/T_icon_compass_Boss_Unknown",
+        "sizeBytes":  2524
+    },
+    {
+        "role":  "Dungeon",
+        "group":  "StaticMap/Compass",
+        "file":  "StaticMap/Compass/T_icon_compass_dungeon.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\UI\\InGame\\T_icon_compass_dungeon.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/UI/InGame/T_icon_compass_dungeon",
+        "sizeBytes":  2517
+    },
+    {
+        "role":  "DungeonBoss",
+        "group":  "StaticMap/Compass",
+        "file":  "StaticMap/Compass/T_icon_compass_KeyBoss.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\UI\\InGame\\T_icon_compass_KeyBoss.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/UI/InGame/T_icon_compass_KeyBoss",
+        "sizeBytes":  4231
+    },
+    {
+        "role":  "OilField",
+        "group":  "StaticMap/Compass",
+        "file":  "StaticMap/Compass/T_icon_compass_Oilrig.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\UI\\InGame\\T_icon_compass_Oilrig.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/UI/InGame/T_icon_compass_Oilrig",
+        "sizeBytes":  4969
+    },
+    {
+        "role":  "ChestAlternative",
+        "group":  "StaticMap/Compass",
+        "file":  "StaticMap/Compass/T_icon_compass_Search_Treasure.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\UI\\InGame\\T_icon_compass_Search_Treasure.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/UI/InGame/T_icon_compass_Search_Treasure",
+        "sizeBytes":  1675
+    },
+    {
+        "role":  "PickupAlternative",
+        "group":  "StaticMap/Compass",
+        "file":  "StaticMap/Compass/T_icon_compass_Search_Junk.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\UI\\InGame\\T_icon_compass_Search_Junk.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/UI/InGame/T_icon_compass_Search_Junk",
+        "sizeBytes":  3146
+    },
+    {
+        "role":  "FastTravelAlternative",
+        "group":  "StaticMap/BuildObject",
+        "file":  "StaticMap/BuildObject/T_icon_buildObject_FastTravelPoint.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\BuildObject\\Icon\\T_icon_buildObject_FastTravelPoint.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/BuildObject/Icon/T_icon_buildObject_FastTravelPoint",
+        "sizeBytes":  33767
+    },
+    {
+        "role":  "SkillFruit",
+        "group":  "StaticMap/BuildObject",
+        "file":  "StaticMap/BuildObject/T_icon_buildObject_Farm_SkillFruits.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\BuildObject\\PNG\\T_icon_buildObject_Farm_SkillFruits.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Farm_SkillFruits",
+        "sizeBytes":  56784
+    },
+    {
+        "role":  "RelicCommon",
+        "group":  "StaticMap/BuildObject",
+        "file":  "StaticMap/BuildObject/T_icon_buildObject_BuildableGoddessStatue.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\BuildObject\\PNG\\T_icon_buildObject_BuildableGoddessStatue.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/BuildObject/PNG/T_icon_buildObject_BuildableGoddessStatue",
+        "sizeBytes":  31776
+    },
+    {
+        "role":  "RelicAlternative",
+        "group":  "StaticMap/BuildObject",
+        "file":  "StaticMap/BuildObject/T_icon_buildObject_YakushimaBoss002_Relic.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\BuildObject\\PNG\\T_icon_buildObject_YakushimaBoss002_Relic.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/BuildObject/PNG/T_icon_buildObject_YakushimaBoss002_Relic",
+        "sizeBytes":  40820
+    },
+    {
+        "role":  "AncientRelicRecycler",
+        "group":  "StaticMap/BuildObject",
+        "file":  "StaticMap/BuildObject/T_icon_buildObject_AncientRelicRecycler.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\BuildObject\\PNG\\T_icon_buildObject_AncientRelicRecycler.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/BuildObject/PNG/T_icon_buildObject_AncientRelicRecycler",
+        "sizeBytes":  52503
+    },
+    {
+        "role":  "Chest",
+        "group":  "StaticMap/BuildObject",
+        "file":  "StaticMap/BuildObject/T_icon_buildObject_ItemChest.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\BuildObject\\PNG\\T_icon_buildObject_ItemChest.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/BuildObject/PNG/T_icon_buildObject_ItemChest",
+        "sizeBytes":  41473
+    },
+    {
+        "role":  "ChestVariant",
+        "group":  "StaticMap/BuildObject",
+        "file":  "StaticMap/BuildObject/T_icon_buildObject_ItemChest_02.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\BuildObject\\PNG\\T_icon_buildObject_ItemChest_02.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/BuildObject/PNG/T_icon_buildObject_ItemChest_02",
+        "sizeBytes":  46680
+    },
+    {
+        "role":  "ChestVariant",
+        "group":  "StaticMap/BuildObject",
+        "file":  "StaticMap/BuildObject/T_icon_buildObject_ItemChest_03.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\BuildObject\\PNG\\T_icon_buildObject_ItemChest_03.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/BuildObject/PNG/T_icon_buildObject_ItemChest_03",
+        "sizeBytes":  36217
+    },
+    {
+        "role":  "ChestVariant",
+        "group":  "StaticMap/BuildObject",
+        "file":  "StaticMap/BuildObject/T_icon_buildObject_ItemChest_04.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\BuildObject\\PNG\\T_icon_buildObject_ItemChest_04.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/BuildObject/PNG/T_icon_buildObject_ItemChest_04",
+        "sizeBytes":  42207
+    },
+    {
+        "role":  "GuildChest",
+        "group":  "StaticMap/BuildObject",
+        "file":  "StaticMap/BuildObject/T_icon_buildObject_GuildChest.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\BuildObject\\PNG\\T_icon_buildObject_GuildChest.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/BuildObject/PNG/T_icon_buildObject_GuildChest",
+        "sizeBytes":  36881
+    },
+    {
+        "role":  "WeaponChest",
+        "group":  "StaticMap/BuildObject",
+        "file":  "StaticMap/BuildObject/T_icon_buildObject_WeaponChest.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\BuildObject\\Icon\\T_icon_buildObject_WeaponChest.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/BuildObject/Icon/T_icon_buildObject_WeaponChest",
+        "sizeBytes":  82904
+    },
+    {
+        "role":  "OilFieldAlternative",
+        "group":  "StaticMap/BuildObject",
+        "file":  "StaticMap/BuildObject/T_icon_buildObject_OilPump.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\BuildObject\\PNG\\T_icon_buildObject_OilPump.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/BuildObject/PNG/T_icon_buildObject_OilPump",
+        "sizeBytes":  45429
+    },
+    {
+        "role":  "OilFieldAlternative",
+        "group":  "StaticMap/BuildObject",
+        "file":  "StaticMap/BuildObject/T_icon_buildObject_OilPump02.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\BuildObject\\PNG\\T_icon_buildObject_OilPump02.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/BuildObject/PNG/T_icon_buildObject_OilPump02",
+        "sizeBytes":  45405
+    },
+    {
+        "role":  "ResourceCopper",
+        "group":  "StaticMap/BuildObject",
+        "file":  "StaticMap/BuildObject/T_icon_buildObject_CopperPit.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\BuildObject\\PNG\\T_icon_buildObject_CopperPit.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/BuildObject/PNG/T_icon_buildObject_CopperPit",
+        "sizeBytes":  45803
+    },
+    {
+        "role":  "ResourceCopperAlternative",
+        "group":  "StaticMap/BuildObject",
+        "file":  "StaticMap/BuildObject/T_icon_buildObject_CopperPit_2.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\BuildObject\\PNG\\T_icon_buildObject_CopperPit_2.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/BuildObject/PNG/T_icon_buildObject_CopperPit_2",
+        "sizeBytes":  58381
+    },
+    {
+        "role":  "ResourceCoal",
+        "group":  "StaticMap/BuildObject",
+        "file":  "StaticMap/BuildObject/T_icon_buildObject_CoalPit.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\BuildObject\\PNG\\T_icon_buildObject_CoalPit.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/BuildObject/PNG/T_icon_buildObject_CoalPit",
+        "sizeBytes":  50590
+    },
+    {
+        "role":  "ResourceStone",
+        "group":  "StaticMap/BuildObject",
+        "file":  "StaticMap/BuildObject/T_icon_buildObject_StonePit.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\BuildObject\\PNG\\T_icon_buildObject_StonePit.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/BuildObject/PNG/T_icon_buildObject_StonePit",
+        "sizeBytes":  48684
+    },
+    {
+        "role":  "ResourceSulfur",
+        "group":  "StaticMap/BuildObject",
+        "file":  "StaticMap/BuildObject/T_icon_buildObject_SulfurPit.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\BuildObject\\PNG\\T_icon_buildObject_SulfurPit.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/BuildObject/PNG/T_icon_buildObject_SulfurPit",
+        "sizeBytes":  51282
+    },
+    {
+        "role":  "ResourceQuartz",
+        "group":  "StaticMap/BuildObject",
+        "file":  "StaticMap/BuildObject/T_icon_buildObject_QuartzPit.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\BuildObject\\PNG\\T_icon_buildObject_QuartzPit.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/BuildObject/PNG/T_icon_buildObject_QuartzPit",
+        "sizeBytes":  51400
+    },
+    {
+        "role":  "PalRelicStatueGuardianDog",
+        "group":  "StaticMap/BuildObject",
+        "file":  "StaticMap/BuildObject/T_icon_buildObject_GuardianDogStatue.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\BuildObject\\PNG\\T_icon_buildObject_GuardianDogStatue.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/BuildObject/PNG/T_icon_buildObject_GuardianDogStatue",
+        "sizeBytes":  37727
+    },
+    {
+        "role":  "Element00",
+        "group":  "DynamicRadar/Elements",
+        "file":  "DynamicRadar/Elements/T_Icon_element_s_00.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\UI\\InGame\\T_Icon_element_s_00.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/UI/InGame/T_Icon_element_s_00",
+        "sizeBytes":  2135
+    },
+    {
+        "role":  "Element01",
+        "group":  "DynamicRadar/Elements",
+        "file":  "DynamicRadar/Elements/T_Icon_element_s_01.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\UI\\InGame\\T_Icon_element_s_01.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/UI/InGame/T_Icon_element_s_01",
+        "sizeBytes":  1922
+    },
+    {
+        "role":  "Element02",
+        "group":  "DynamicRadar/Elements",
+        "file":  "DynamicRadar/Elements/T_Icon_element_s_02.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\UI\\InGame\\T_Icon_element_s_02.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/UI/InGame/T_Icon_element_s_02",
+        "sizeBytes":  1689
+    },
+    {
+        "role":  "Element03",
+        "group":  "DynamicRadar/Elements",
+        "file":  "DynamicRadar/Elements/T_Icon_element_s_03.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\UI\\InGame\\T_Icon_element_s_03.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/UI/InGame/T_Icon_element_s_03",
+        "sizeBytes":  1343
+    },
+    {
+        "role":  "Element04",
+        "group":  "DynamicRadar/Elements",
+        "file":  "DynamicRadar/Elements/T_Icon_element_s_04.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\UI\\InGame\\T_Icon_element_s_04.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/UI/InGame/T_Icon_element_s_04",
+        "sizeBytes":  1588
+    },
+    {
+        "role":  "Element05",
+        "group":  "DynamicRadar/Elements",
+        "file":  "DynamicRadar/Elements/T_Icon_element_s_05.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\UI\\InGame\\T_Icon_element_s_05.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/UI/InGame/T_Icon_element_s_05",
+        "sizeBytes":  2213
+    },
+    {
+        "role":  "Element06",
+        "group":  "DynamicRadar/Elements",
+        "file":  "DynamicRadar/Elements/T_Icon_element_s_06.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\UI\\InGame\\T_Icon_element_s_06.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/UI/InGame/T_Icon_element_s_06",
+        "sizeBytes":  1808
+    },
+    {
+        "role":  "Element07",
+        "group":  "DynamicRadar/Elements",
+        "file":  "DynamicRadar/Elements/T_Icon_element_s_07.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\UI\\InGame\\T_Icon_element_s_07.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/UI/InGame/T_Icon_element_s_07",
+        "sizeBytes":  1546
+    },
+    {
+        "role":  "Element08",
+        "group":  "DynamicRadar/Elements",
+        "file":  "DynamicRadar/Elements/T_Icon_element_s_08.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\UI\\InGame\\T_Icon_element_s_08.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/UI/InGame/T_Icon_element_s_08",
+        "sizeBytes":  2097
+    },
+    {
+        "role":  "StrongEnemy",
+        "group":  "DynamicRadar/Markers",
+        "file":  "DynamicRadar/Markers/T_icon_enemy_strong.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\UI\\InGame\\T_icon_enemy_strong.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/UI/InGame/T_icon_enemy_strong",
+        "sizeBytes":  3477
+    },
+    {
+        "role":  "RarePal",
+        "group":  "DynamicRadar/Markers",
+        "file":  "DynamicRadar/Markers/T_icon_pal_rare.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\UI\\InGame\\T_icon_pal_rare.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/UI/InGame/T_icon_pal_rare",
+        "sizeBytes":  1255
+    },
+    {
+        "role":  "RarityMarker",
+        "group":  "DynamicRadar/Markers",
+        "file":  "DynamicRadar/Markers/T_icon_enemy_rarity_01.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\UI\\InGame\\T_icon_enemy_rarity_01.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/UI/InGame/T_icon_enemy_rarity_01",
+        "sizeBytes":  1559
+    },
+    {
+        "role":  "DungeonMenu",
+        "group":  "DynamicRadar/Markers",
+        "file":  "DynamicRadar/Markers/T_icon_dungeon.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\UI\\IngameMenu\\T_icon_dungeon.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/UI/IngameMenu/T_icon_dungeon",
+        "sizeBytes":  3283
+    },
+    {
+        "role":  "DungeonMenuSmall",
+        "group":  "DynamicRadar/Markers",
+        "file":  "DynamicRadar/Markers/T_icon_dungeon_S.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\UI\\IngameMenu\\T_icon_dungeon_S.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/UI/IngameMenu/T_icon_dungeon_S",
+        "sizeBytes":  1158
+    },
+    {
+        "role":  "RelicNegativeKoala",
+        "group":  "PalRelicStatues",
+        "file":  "PalRelicStatues/T_NegativeKoala_icon_normal.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\PalIcon\\Normal\\T_NegativeKoala_icon_normal.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/PalIcon/Normal/T_NegativeKoala_icon_normal",
+        "sizeBytes":  14973
+    },
+    {
+        "role":  "RelicMonkey",
+        "group":  "PalRelicStatues",
+        "file":  "PalRelicStatues/T_Monkey_icon_normal.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\PalIcon\\Normal\\T_Monkey_icon_normal.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/PalIcon/Normal/T_Monkey_icon_normal",
+        "sizeBytes":  15845
+    },
+    {
+        "role":  "RelicPenguin",
+        "group":  "PalRelicStatues",
+        "file":  "PalRelicStatues/T_Penguin_icon_normal.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\PalIcon\\Normal\\T_Penguin_icon_normal.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/PalIcon/Normal/T_Penguin_icon_normal",
+        "sizeBytes":  12223
+    },
+    {
+        "role":  "RelicSheepBall",
+        "group":  "PalRelicStatues",
+        "file":  "PalRelicStatues/T_SheepBall_icon_normal.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\PalIcon\\Normal\\T_SheepBall_icon_normal.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/PalIcon/Normal/T_SheepBall_icon_normal",
+        "sizeBytes":  17222
+    },
+    {
+        "role":  "RelicPinkCat",
+        "group":  "PalRelicStatues",
+        "file":  "PalRelicStatues/T_PinkCat_icon_normal.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\PalIcon\\Normal\\T_PinkCat_icon_normal.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/PalIcon/Normal/T_PinkCat_icon_normal",
+        "sizeBytes":  15267
+    },
+    {
+        "role":  "RelicFlameBambi",
+        "group":  "PalRelicStatues",
+        "file":  "PalRelicStatues/T_FlameBambi_icon_normal.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\PalIcon\\Normal\\T_FlameBambi_icon_normal.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/PalIcon/Normal/T_FlameBambi_icon_normal",
+        "sizeBytes":  14341
+    },
+    {
+        "role":  "RelicIceCrocodile",
+        "group":  "PalRelicStatues",
+        "file":  "PalRelicStatues/T_IceCrocodile_icon_normal.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\PalIcon\\Normal\\T_IceCrocodile_icon_normal.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/PalIcon/Normal/T_IceCrocodile_icon_normal",
+        "sizeBytes":  12918
+    },
+    {
+        "role":  "RelicLeafMomonga",
+        "group":  "PalRelicStatues",
+        "file":  "PalRelicStatues/T_LeafMomonga_icon_normal.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\PalIcon\\Normal\\T_LeafMomonga_icon_normal.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/PalIcon/Normal/T_LeafMomonga_icon_normal",
+        "sizeBytes":  18568
+    },
+    {
+        "role":  "RelicLazyDragon",
+        "group":  "PalRelicStatues",
+        "file":  "PalRelicStatues/T_LazyDragon_icon_normal.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\PalIcon\\Normal\\T_LazyDragon_icon_normal.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/PalIcon/Normal/T_LazyDragon_icon_normal",
+        "sizeBytes":  9130
+    },
+    {
+        "role":  "RelicGuardianDog",
+        "group":  "PalRelicStatues",
+        "file":  "PalRelicStatues/T_GuardianDog_icon_normal.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\PalIcon\\Normal\\T_GuardianDog_icon_normal.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/PalIcon/Normal/T_GuardianDog_icon_normal",
+        "sizeBytes":  14366
+    },
+    {
+        "role":  "RelicMutant",
+        "group":  "PalRelicStatues",
+        "file":  "PalRelicStatues/T_Mutant_icon_normal.png",
+        "source":  "D:\\PalOutput\\Exports\\Pal\\Content\\Pal\\Texture\\PalIcon\\Normal\\T_Mutant_icon_normal.png",
+        "sourceAssetPath":  "/Game/Pal/Texture/PalIcon/Normal/T_Mutant_icon_normal",
+        "sizeBytes":  14236
+    }
+]

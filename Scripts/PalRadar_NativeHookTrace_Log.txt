@@ -1,0 +1,642 @@
+2026-07-18 21:54:53 | Registered hook trace: /Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location preId=1 postId=1
+2026-07-18 21:54:59 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-18 21:54:59 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147460741.WidgetTree_2147460740.WBP_Map_Body_MW5
+2026-07-18 21:54:59 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147460605
+2026-07-18 21:54:59 |   worldLocation=UScriptStruct X=-867560.875,Y=-441338.21875,Z=18640.152344
+2026-07-18 21:54:59 |   ignoreMask=boolean:false
+2026-07-18 21:54:59 |   toPriority=boolean:false
+2026-07-18 21:54:59 |   added=boolean:false
+2026-07-18 21:54:59 |   --
+2026-07-18 21:55:00 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-18 21:55:00 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147460741.WidgetTree_2147460740.WBP_Map_Body_MW5
+2026-07-18 21:55:00 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147460598
+2026-07-18 21:55:00 |   worldLocation=UScriptStruct X=-791868.1875,Y=-337175.9375,Z=35122.785156
+2026-07-18 21:55:00 |   ignoreMask=boolean:false
+2026-07-18 21:55:00 |   toPriority=boolean:false
+2026-07-18 21:55:00 |   added=boolean:false
+2026-07-18 21:55:00 |   --
+2026-07-18 21:55:00 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-18 21:55:00 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147460741.WidgetTree_2147460740.WBP_Map_Body_MW5
+2026-07-18 21:55:00 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147460591
+2026-07-18 21:55:00 |   worldLocation=UScriptStruct X=-691248.625,Y=-309680.34375,Z=16072.179688
+2026-07-18 21:55:00 |   ignoreMask=boolean:false
+2026-07-18 21:55:00 |   toPriority=boolean:false
+2026-07-18 21:55:00 |   added=boolean:false
+2026-07-18 21:55:00 |   --
+2026-07-18 21:55:00 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-18 21:55:00 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147460741.WidgetTree_2147460740.WBP_Map_Body_MW5
+2026-07-18 21:55:00 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147460584
+2026-07-18 21:55:00 |   worldLocation=UScriptStruct X=-772213.1875,Y=-273563.46875,Z=5318.774902
+2026-07-18 21:55:00 |   ignoreMask=boolean:false
+2026-07-18 21:55:00 |   toPriority=boolean:false
+2026-07-18 21:55:00 |   added=boolean:false
+2026-07-18 21:55:00 |   --
+2026-07-18 21:55:00 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-18 21:55:00 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147460741.WidgetTree_2147460740.WBP_Map_Body_MW5
+2026-07-18 21:55:00 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147460577
+2026-07-18 21:55:00 |   worldLocation=UScriptStruct X=-550552.0625,Y=-166886.3125,Z=-476.084503
+2026-07-18 21:55:00 |   ignoreMask=boolean:false
+2026-07-18 21:55:00 |   toPriority=boolean:false
+2026-07-18 21:55:00 |   added=boolean:false
+2026-07-18 21:55:00 |   --
+2026-07-18 21:55:00 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-18 21:55:00 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147460741.WidgetTree_2147460740.WBP_Map_Body_MW5
+2026-07-18 21:55:00 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147460570
+2026-07-18 21:55:00 |   worldLocation=UScriptStruct X=-721639.0,Y=-432015.0,Z=10210.874023
+2026-07-18 21:55:00 |   ignoreMask=boolean:false
+2026-07-18 21:55:00 |   toPriority=boolean:false
+2026-07-18 21:55:00 |   added=boolean:false
+2026-07-18 21:55:00 |   --
+2026-07-18 21:55:00 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-18 21:55:00 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147460741.WidgetTree_2147460740.WBP_Map_Body_MW5
+2026-07-18 21:55:00 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147460563
+2026-07-18 21:55:00 |   worldLocation=UScriptStruct X=-717565.9375,Y=-251787.328125,Z=175.197144
+2026-07-18 21:55:00 |   ignoreMask=boolean:false
+2026-07-18 21:55:00 |   toPriority=boolean:false
+2026-07-18 21:55:00 |   added=boolean:false
+2026-07-18 21:55:00 |   --
+2026-07-18 21:55:00 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-18 21:55:00 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147460741.WidgetTree_2147460740.WBP_Map_Body_MW5
+2026-07-18 21:55:00 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147460556
+2026-07-18 21:55:00 |   worldLocation=UScriptStruct X=-516157.0,Y=-393151.125,Z=-721.865662
+2026-07-18 21:55:00 |   ignoreMask=boolean:false
+2026-07-18 21:55:00 |   toPriority=boolean:false
+2026-07-18 21:55:00 |   added=boolean:false
+2026-07-18 21:55:00 |   --
+2026-07-18 21:55:00 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-18 21:55:00 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147460741.WidgetTree_2147460740.WBP_Map_Body_MW5
+2026-07-18 21:55:00 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147460549
+2026-07-18 21:55:00 |   worldLocation=UScriptStruct X=-723782.6875,Y=-230996.65625,Z=7282.105957
+2026-07-18 21:55:00 |   ignoreMask=boolean:false
+2026-07-18 21:55:00 |   toPriority=boolean:false
+2026-07-18 21:55:00 |   added=boolean:false
+2026-07-18 21:55:00 |   --
+2026-07-18 21:55:00 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-18 21:55:00 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147460741.WidgetTree_2147460740.WBP_Map_Body_MW5
+2026-07-18 21:55:00 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147460542
+2026-07-18 21:55:00 |   worldLocation=UScriptStruct X=-889441.3125,Y=-361294.3125,Z=-1930.757324
+2026-07-18 21:55:00 |   ignoreMask=boolean:false
+2026-07-18 21:55:00 |   toPriority=boolean:false
+2026-07-18 21:55:00 |   added=boolean:false
+2026-07-18 21:55:00 |   --
+2026-07-18 21:55:00 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-18 21:55:00 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147460741.WidgetTree_2147460740.WBP_Map_Body_MW5
+2026-07-18 21:55:00 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147460535
+2026-07-18 21:55:00 |   worldLocation=UScriptStruct X=-661871.875,Y=-284991.84375,Z=1422.102295
+2026-07-18 21:55:00 |   ignoreMask=boolean:false
+2026-07-18 21:55:00 |   toPriority=boolean:false
+2026-07-18 21:55:00 |   added=boolean:false
+2026-07-18 21:55:00 |   --
+2026-07-18 21:55:00 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-18 21:55:00 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147460741.WidgetTree_2147460740.WBP_Map_Body_MW5
+2026-07-18 21:55:00 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147460528
+2026-07-18 21:55:00 |   worldLocation=UScriptStruct X=-544943.3125,Y=-264111.875,Z=2902.396973
+2026-07-18 21:55:00 |   ignoreMask=boolean:false
+2026-07-18 21:55:00 |   toPriority=boolean:false
+2026-07-18 21:55:00 |   added=boolean:false
+2026-07-18 21:55:00 |   --
+2026-07-18 21:55:00 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-18 21:55:00 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147460741.WidgetTree_2147460740.WBP_Map_Body_MW5
+2026-07-18 21:55:00 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147460521
+2026-07-18 21:55:00 |   worldLocation=UScriptStruct X=-593253.125,Y=-294034.5625,Z=1152.595581
+2026-07-18 21:55:00 |   ignoreMask=boolean:false
+2026-07-18 21:55:00 |   toPriority=boolean:false
+2026-07-18 21:55:00 |   added=boolean:false
+2026-07-18 21:55:00 |   --
+2026-07-18 21:55:00 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-18 21:55:00 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147460741.WidgetTree_2147460740.WBP_Map_Body_MW5
+2026-07-18 21:55:00 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147460514
+2026-07-18 21:55:00 |   worldLocation=UScriptStruct X=-649837.0625,Y=-235616.65625,Z=17616.091797
+2026-07-18 21:55:00 |   ignoreMask=boolean:false
+2026-07-18 21:55:00 |   toPriority=boolean:false
+2026-07-18 21:55:00 |   added=boolean:false
+2026-07-18 21:55:00 |   --
+2026-07-18 21:55:00 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-18 21:55:00 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147460741.WidgetTree_2147460740.WBP_Map_Body_MW5
+2026-07-18 21:55:00 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147460507
+2026-07-18 21:55:00 |   worldLocation=UScriptStruct X=-773027.375,Y=-368265.875,Z=4287.21875
+2026-07-18 21:55:00 |   ignoreMask=boolean:false
+2026-07-18 21:55:00 |   toPriority=boolean:false
+2026-07-18 21:55:00 |   added=boolean:false
+2026-07-18 21:55:00 |   --
+2026-07-18 21:55:00 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-18 21:55:00 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147460741.WidgetTree_2147460740.WBP_Map_Body_Tree
+2026-07-18 21:55:00 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147460500
+2026-07-18 21:55:00 |   worldLocation=UScriptStruct X=517450.0,Y=-626940.0,Z=10980.0
+2026-07-18 21:55:00 |   ignoreMask=boolean:false
+2026-07-18 21:55:00 |   toPriority=boolean:false
+2026-07-18 21:55:00 |   added=boolean:false
+2026-07-18 21:55:00 |   --
+2026-07-18 21:55:00 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-18 21:55:00 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147460741.WidgetTree_2147460740.WBP_Map_Body_Tree
+2026-07-18 21:55:00 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147460493
+2026-07-18 21:55:00 |   worldLocation=UScriptStruct X=520440.0,Y=-727175.0,Z=41054.539062
+2026-07-18 21:55:00 |   ignoreMask=boolean:false
+2026-07-18 21:55:00 |   toPriority=boolean:false
+2026-07-18 21:55:00 |   added=boolean:false
+2026-07-18 21:55:00 |   --
+2026-07-18 21:55:00 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-18 21:55:00 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147460741.WidgetTree_2147460740.WBP_Map_Body_Tree
+2026-07-18 21:55:00 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147460486
+2026-07-18 21:55:00 |   worldLocation=UScriptStruct X=526910.1875,Y=-581727.625,Z=18204.207031
+2026-07-18 21:55:00 |   ignoreMask=boolean:false
+2026-07-18 21:55:00 |   toPriority=boolean:false
+2026-07-18 21:55:00 |   added=boolean:false
+2026-07-18 21:55:00 |   --
+2026-07-18 21:55:00 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-18 21:55:00 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147460741.WidgetTree_2147460740.WBP_Map_Body_Tree
+2026-07-18 21:55:00 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147460479
+2026-07-18 21:55:00 |   worldLocation=UScriptStruct X=458095.0,Y=-694560.0,Z=19325.0
+2026-07-18 21:55:00 |   ignoreMask=boolean:false
+2026-07-18 21:55:00 |   toPriority=boolean:false
+2026-07-18 21:55:00 |   added=boolean:false
+2026-07-18 21:55:00 |   --
+2026-07-18 21:55:00 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-18 21:55:00 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147460741.WidgetTree_2147460740.WBP_Map_Body_Tree
+2026-07-18 21:55:00 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147460472
+2026-07-18 21:55:00 |   worldLocation=UScriptStruct X=571870.0,Y=-733420.0,Z=18000.0
+2026-07-18 21:55:00 |   ignoreMask=boolean:false
+2026-07-18 21:55:00 |   toPriority=boolean:false
+2026-07-18 21:55:00 |   added=boolean:false
+2026-07-18 21:55:00 |   --
+2026-07-18 21:55:00 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-18 21:55:00 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147460741.WidgetTree_2147460740.WBP_Map_Body_Tree
+2026-07-18 21:55:00 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147460465
+2026-07-18 21:55:00 |   worldLocation=UScriptStruct X=601096.75,Y=-572063.0625,Z=30180.0
+2026-07-18 21:55:00 |   ignoreMask=boolean:false
+2026-07-18 21:55:00 |   toPriority=boolean:false
+2026-07-18 21:55:00 |   added=boolean:false
+2026-07-18 21:55:00 |   --
+2026-07-18 21:55:00 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-18 21:55:00 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147460741.WidgetTree_2147460740.WBP_Map_Body_Tree
+2026-07-18 21:55:00 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147460458
+2026-07-18 21:55:00 |   worldLocation=UScriptStruct X=491580.78125,Y=-725697.0625,Z=12042.805664
+2026-07-18 21:55:00 |   ignoreMask=boolean:false
+2026-07-18 21:55:00 |   toPriority=boolean:false
+2026-07-18 21:55:00 |   added=boolean:false
+2026-07-18 21:55:00 |   --
+2026-07-18 21:55:00 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-18 21:55:00 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147460741.WidgetTree_2147460740.WBP_Map_Body_MW5
+2026-07-18 21:55:00 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147460451
+2026-07-18 21:55:00 |   worldLocation=UScriptStruct X=-46108.394531,Y=302547.8125,Z=-1928.493652
+2026-07-18 21:55:00 |   ignoreMask=boolean:false
+2026-07-18 21:55:00 |   toPriority=boolean:false
+2026-07-18 21:55:00 |   added=boolean:false
+2026-07-18 21:55:00 |   --
+2026-07-18 21:55:00 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-18 21:55:00 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147460741.WidgetTree_2147460740.WBP_Map_Body_MW5
+2026-07-18 21:55:00 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147460444
+2026-07-18 21:55:00 |   worldLocation=UScriptStruct X=97716.3125,Y=307499.6875,Z=17330.396484
+2026-07-18 21:55:00 |   ignoreMask=boolean:false
+2026-07-18 21:55:00 |   toPriority=boolean:false
+2026-07-18 21:55:00 |   added=boolean:false
+2026-07-18 21:55:00 |   --
+2026-07-18 21:55:00 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-18 21:55:00 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147460741.WidgetTree_2147460740.WBP_Map_Body_MW5
+2026-07-18 21:55:00 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147460437
+2026-07-18 21:55:00 |   worldLocation=UScriptStruct X=122760.0,Y=318710.0,Z=320.0
+2026-07-18 21:55:00 |   ignoreMask=boolean:false
+2026-07-18 21:55:00 |   toPriority=boolean:false
+2026-07-18 21:55:00 |   added=boolean:false
+2026-07-18 21:55:00 |   --
+2026-07-18 21:55:00 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-18 21:55:00 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147460741.WidgetTree_2147460740.WBP_Map_Body_MW5
+2026-07-18 21:55:00 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147460430
+2026-07-18 21:55:00 |   worldLocation=UScriptStruct X=50564.78125,Y=357757.46875,Z=29.70578
+2026-07-18 21:55:00 |   ignoreMask=boolean:false
+2026-07-18 21:55:00 |   toPriority=boolean:false
+2026-07-18 21:55:00 |   added=boolean:false
+2026-07-18 21:55:00 |   --
+2026-07-18 21:55:00 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-18 21:55:00 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147460741.WidgetTree_2147460740.WBP_Map_Body_MW5
+2026-07-18 21:55:00 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147460423
+2026-07-18 21:55:00 |   worldLocation=UScriptStruct X=187731.203125,Y=359897.25,Z=2647.322998
+2026-07-18 21:55:00 |   ignoreMask=boolean:false
+2026-07-18 21:55:00 |   toPriority=boolean:false
+2026-07-18 21:55:00 |   added=boolean:false
+2026-07-18 21:55:00 |   --
+2026-07-18 21:55:00 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-18 21:55:00 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147460741.WidgetTree_2147460740.WBP_Map_Body_MW5
+2026-07-18 21:55:00 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147460416
+2026-07-18 21:55:00 |   worldLocation=UScriptStruct X=-1033347.9375,Y=-358750.8125,Z=7958.068848
+2026-07-18 21:55:00 |   ignoreMask=boolean:false
+2026-07-18 21:55:00 |   toPriority=boolean:false
+2026-07-18 21:55:00 |   added=boolean:false
+2026-07-18 21:55:00 |   --
+2026-07-18 21:55:00 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-18 21:55:00 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147460741.WidgetTree_2147460740.WBP_Map_Body_MW5
+2026-07-18 21:55:00 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147460409
+2026-07-18 21:55:00 |   worldLocation=UScriptStruct X=90345.453125,Y=534007.8125,Z=3685.106689
+2026-07-18 21:55:00 |   ignoreMask=boolean:false
+2026-07-18 21:55:00 |   toPriority=boolean:false
+2026-07-18 21:55:00 |   added=boolean:false
+2026-07-18 21:55:00 |   --
+2026-07-18 21:55:00 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-18 21:55:00 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147460741.WidgetTree_2147460740.WBP_Map_Body_MW5
+2026-07-18 21:55:00 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147460402
+2026-07-18 21:55:00 |   worldLocation=UScriptStruct X=-450359.53125,Y=356886.21875,Z=3561.442139
+2026-07-18 21:55:00 |   ignoreMask=boolean:false
+2026-07-18 21:55:00 |   toPriority=boolean:false
+2026-07-18 21:55:00 |   added=boolean:false
+2026-07-18 21:55:00 |   --
+2026-07-18 21:55:00 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-18 21:55:00 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147460741.WidgetTree_2147460740.WBP_Map_Body_MW5
+2026-07-18 21:55:00 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147460395
+2026-07-18 21:55:00 |   worldLocation=UScriptStruct X=-404768.1875,Y=-444910.75,Z=-695.882385
+2026-07-18 21:55:00 |   ignoreMask=boolean:false
+2026-07-18 21:55:00 |   toPriority=boolean:false
+2026-07-18 21:55:00 |   added=boolean:false
+2026-07-18 21:55:00 |   --
+2026-07-18 21:55:00 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-18 21:55:00 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147460741.WidgetTree_2147460740.WBP_Map_Body_MW5
+2026-07-18 21:55:00 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147460388
+2026-07-18 21:55:00 |   worldLocation=UScriptStruct X=-558869.9375,Y=-619480.75,Z=-1819.683716
+2026-07-18 21:55:00 |   ignoreMask=boolean:false
+2026-07-18 21:55:00 |   toPriority=boolean:false
+2026-07-18 21:55:00 |   added=boolean:false
+2026-07-18 21:55:00 |   --
+2026-07-18 21:55:00 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-18 21:55:00 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147460741.WidgetTree_2147460740.WBP_Map_Body_MW5
+2026-07-18 21:55:00 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147460381
+2026-07-18 21:55:00 |   worldLocation=UScriptStruct X=-169138.25,Y=575683.125,Z=-1814.144409
+2026-07-18 21:55:00 |   ignoreMask=boolean:false
+2026-07-18 21:55:00 |   toPriority=boolean:false
+2026-07-18 21:55:00 |   added=boolean:false
+2026-07-18 21:55:00 |   --
+2026-07-18 21:55:00 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-18 21:55:00 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147460741.WidgetTree_2147460740.WBP_Map_Body_MW5
+2026-07-18 21:55:00 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147460374
+2026-07-18 21:55:00 |   worldLocation=UScriptStruct X=39324.882812,Y=-18772.695312,Z=6701.489746
+2026-07-18 21:55:00 |   ignoreMask=boolean:false
+2026-07-18 21:55:00 |   toPriority=boolean:false
+2026-07-18 21:55:00 |   added=boolean:false
+2026-07-18 21:55:00 |   --
+2026-07-18 21:55:00 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-18 21:55:00 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147460741.WidgetTree_2147460740.WBP_Map_Body_MW5
+2026-07-18 21:55:00 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147460367
+2026-07-18 21:55:00 |   worldLocation=UScriptStruct X=262730.0,Y=75740.0,Z=-3182.999756
+2026-07-18 21:55:00 |   ignoreMask=boolean:false
+2026-07-18 21:55:00 |   toPriority=boolean:false
+2026-07-18 21:55:00 |   added=boolean:false
+2026-07-18 21:55:00 |   --
+2026-07-18 21:55:00 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-18 21:55:00 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147460741.WidgetTree_2147460740.WBP_Map_Body_MW5
+2026-07-18 21:55:00 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147460360
+2026-07-18 21:55:00 |   worldLocation=UScriptStruct X=109790.0,Y=-5880.0,Z=22180.0
+2026-07-18 21:55:00 |   ignoreMask=boolean:false
+2026-07-18 21:55:00 |   toPriority=boolean:false
+2026-07-18 21:55:00 |   added=boolean:false
+2026-07-18 21:55:00 |   --
+2026-07-18 21:55:00 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-18 21:55:00 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147460741.WidgetTree_2147460740.WBP_Map_Body_MW5
+2026-07-18 21:55:00 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147460353
+2026-07-18 21:55:00 |   worldLocation=UScriptStruct X=14681.051758,Y=-132067.5625,Z=2994.48999
+2026-07-18 21:55:00 |   ignoreMask=boolean:false
+2026-07-18 21:55:00 |   toPriority=boolean:false
+2026-07-18 21:55:00 |   added=boolean:false
+2026-07-18 21:55:00 |   --
+2026-07-18 21:55:00 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-18 21:55:00 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147460741.WidgetTree_2147460740.WBP_Map_Body_MW5
+2026-07-18 21:55:00 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147460346
+2026-07-18 21:55:00 |   worldLocation=UScriptStruct X=21745.544922,Y=-109001.640625,Z=-1343.315796
+2026-07-18 21:55:00 |   ignoreMask=boolean:false
+2026-07-18 21:55:00 |   toPriority=boolean:false
+2026-07-18 21:55:00 |   added=boolean:false
+2026-07-18 21:55:00 |   --
+2026-07-18 21:55:00 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-18 21:55:00 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147460741.WidgetTree_2147460740.WBP_Map_Body_MW5
+2026-07-18 21:55:00 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147460339
+2026-07-18 21:55:00 |   worldLocation=UScriptStruct X=15843.515625,Y=-130382.898438,Z=3160.84375
+2026-07-18 21:55:00 |   ignoreMask=boolean:false
+2026-07-18 21:55:00 |   toPriority=boolean:false
+2026-07-18 21:55:00 |   added=boolean:false
+2026-07-18 21:55:00 |   --
+2026-07-18 21:55:00 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-18 21:55:00 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147460741.WidgetTree_2147460740.WBP_Map_Body_MW5
+2026-07-18 21:55:00 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147460332
+2026-07-18 21:55:00 |   worldLocation=UScriptStruct X=-821552.125,Y=46132.058594,Z=51332.957031
+2026-07-18 21:55:00 |   ignoreMask=boolean:false
+2026-07-18 21:55:00 |   toPriority=boolean:false
+2026-07-18 21:55:00 |   added=boolean:false
+2026-07-18 21:55:00 |   --
+2026-07-19 13:53:04 | Registered hook trace: /Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location preId=1 postId=1
+2026-07-19 13:53:10 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-19 13:53:10 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147454260.WidgetTree_2147454259.WBP_Map_Body_MW5
+2026-07-19 13:53:10 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147454124
+2026-07-19 13:53:10 |   worldLocation=UScriptStruct X=-867560.875,Y=-441338.21875,Z=18640.152344
+2026-07-19 13:53:10 |   ignoreMask=boolean:false
+2026-07-19 13:53:10 |   toPriority=boolean:false
+2026-07-19 13:53:10 |   added=boolean:false
+2026-07-19 13:53:10 |   --
+2026-07-19 13:53:10 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-19 13:53:10 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147454260.WidgetTree_2147454259.WBP_Map_Body_MW5
+2026-07-19 13:53:10 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147454117
+2026-07-19 13:53:10 |   worldLocation=UScriptStruct X=-791868.1875,Y=-337175.9375,Z=35122.785156
+2026-07-19 13:53:10 |   ignoreMask=boolean:false
+2026-07-19 13:53:10 |   toPriority=boolean:false
+2026-07-19 13:53:10 |   added=boolean:false
+2026-07-19 13:53:10 |   --
+2026-07-19 13:53:10 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-19 13:53:10 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147454260.WidgetTree_2147454259.WBP_Map_Body_MW5
+2026-07-19 13:53:10 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147454110
+2026-07-19 13:53:10 |   worldLocation=UScriptStruct X=-691248.625,Y=-309680.34375,Z=16072.179688
+2026-07-19 13:53:10 |   ignoreMask=boolean:false
+2026-07-19 13:53:10 |   toPriority=boolean:false
+2026-07-19 13:53:10 |   added=boolean:false
+2026-07-19 13:53:10 |   --
+2026-07-19 13:53:10 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-19 13:53:10 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147454260.WidgetTree_2147454259.WBP_Map_Body_MW5
+2026-07-19 13:53:10 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147454103
+2026-07-19 13:53:10 |   worldLocation=UScriptStruct X=-772213.1875,Y=-273563.46875,Z=5318.774902
+2026-07-19 13:53:10 |   ignoreMask=boolean:false
+2026-07-19 13:53:10 |   toPriority=boolean:false
+2026-07-19 13:53:10 |   added=boolean:false
+2026-07-19 13:53:10 |   --
+2026-07-19 13:53:10 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-19 13:53:10 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147454260.WidgetTree_2147454259.WBP_Map_Body_MW5
+2026-07-19 13:53:10 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147454096
+2026-07-19 13:53:10 |   worldLocation=UScriptStruct X=-550552.0625,Y=-166886.3125,Z=-476.084503
+2026-07-19 13:53:10 |   ignoreMask=boolean:false
+2026-07-19 13:53:10 |   toPriority=boolean:false
+2026-07-19 13:53:10 |   added=boolean:false
+2026-07-19 13:53:10 |   --
+2026-07-19 13:53:10 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-19 13:53:10 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147454260.WidgetTree_2147454259.WBP_Map_Body_MW5
+2026-07-19 13:53:10 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147454089
+2026-07-19 13:53:10 |   worldLocation=UScriptStruct X=-721639.0,Y=-432015.0,Z=10210.874023
+2026-07-19 13:53:10 |   ignoreMask=boolean:false
+2026-07-19 13:53:10 |   toPriority=boolean:false
+2026-07-19 13:53:10 |   added=boolean:false
+2026-07-19 13:53:10 |   --
+2026-07-19 13:53:10 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-19 13:53:10 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147454260.WidgetTree_2147454259.WBP_Map_Body_MW5
+2026-07-19 13:53:10 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147454082
+2026-07-19 13:53:10 |   worldLocation=UScriptStruct X=-717565.9375,Y=-251787.328125,Z=175.197144
+2026-07-19 13:53:10 |   ignoreMask=boolean:false
+2026-07-19 13:53:10 |   toPriority=boolean:false
+2026-07-19 13:53:10 |   added=boolean:false
+2026-07-19 13:53:10 |   --
+2026-07-19 13:53:10 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-19 13:53:10 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147454260.WidgetTree_2147454259.WBP_Map_Body_MW5
+2026-07-19 13:53:10 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147454075
+2026-07-19 13:53:10 |   worldLocation=UScriptStruct X=-516157.0,Y=-393151.125,Z=-721.865662
+2026-07-19 13:53:10 |   ignoreMask=boolean:false
+2026-07-19 13:53:10 |   toPriority=boolean:false
+2026-07-19 13:53:10 |   added=boolean:false
+2026-07-19 13:53:10 |   --
+2026-07-19 13:53:10 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-19 13:53:10 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147454260.WidgetTree_2147454259.WBP_Map_Body_MW5
+2026-07-19 13:53:10 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147454068
+2026-07-19 13:53:10 |   worldLocation=UScriptStruct X=-723782.6875,Y=-230996.65625,Z=7282.105957
+2026-07-19 13:53:10 |   ignoreMask=boolean:false
+2026-07-19 13:53:10 |   toPriority=boolean:false
+2026-07-19 13:53:10 |   added=boolean:false
+2026-07-19 13:53:10 |   --
+2026-07-19 13:53:10 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-19 13:53:10 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147454260.WidgetTree_2147454259.WBP_Map_Body_MW5
+2026-07-19 13:53:10 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147454061
+2026-07-19 13:53:10 |   worldLocation=UScriptStruct X=-889441.3125,Y=-361294.3125,Z=-1930.757324
+2026-07-19 13:53:10 |   ignoreMask=boolean:false
+2026-07-19 13:53:10 |   toPriority=boolean:false
+2026-07-19 13:53:10 |   added=boolean:false
+2026-07-19 13:53:10 |   --
+2026-07-19 13:53:10 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-19 13:53:10 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147454260.WidgetTree_2147454259.WBP_Map_Body_MW5
+2026-07-19 13:53:10 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147454054
+2026-07-19 13:53:10 |   worldLocation=UScriptStruct X=-661871.875,Y=-284991.84375,Z=1422.102295
+2026-07-19 13:53:10 |   ignoreMask=boolean:false
+2026-07-19 13:53:10 |   toPriority=boolean:false
+2026-07-19 13:53:10 |   added=boolean:false
+2026-07-19 13:53:10 |   --
+2026-07-19 13:53:10 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-19 13:53:10 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147454260.WidgetTree_2147454259.WBP_Map_Body_MW5
+2026-07-19 13:53:10 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147454047
+2026-07-19 13:53:10 |   worldLocation=UScriptStruct X=-544943.3125,Y=-264111.875,Z=2902.396973
+2026-07-19 13:53:10 |   ignoreMask=boolean:false
+2026-07-19 13:53:10 |   toPriority=boolean:false
+2026-07-19 13:53:10 |   added=boolean:false
+2026-07-19 13:53:10 |   --
+2026-07-19 13:53:10 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-19 13:53:10 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147454260.WidgetTree_2147454259.WBP_Map_Body_MW5
+2026-07-19 13:53:10 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147454040
+2026-07-19 13:53:10 |   worldLocation=UScriptStruct X=-593253.125,Y=-294034.5625,Z=1152.595581
+2026-07-19 13:53:10 |   ignoreMask=boolean:false
+2026-07-19 13:53:10 |   toPriority=boolean:false
+2026-07-19 13:53:10 |   added=boolean:false
+2026-07-19 13:53:10 |   --
+2026-07-19 13:53:10 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-19 13:53:10 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147454260.WidgetTree_2147454259.WBP_Map_Body_MW5
+2026-07-19 13:53:10 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147454033
+2026-07-19 13:53:10 |   worldLocation=UScriptStruct X=-649837.0625,Y=-235616.65625,Z=17616.091797
+2026-07-19 13:53:10 |   ignoreMask=boolean:false
+2026-07-19 13:53:10 |   toPriority=boolean:false
+2026-07-19 13:53:10 |   added=boolean:false
+2026-07-19 13:53:10 |   --
+2026-07-19 13:53:10 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-19 13:53:10 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147454260.WidgetTree_2147454259.WBP_Map_Body_MW5
+2026-07-19 13:53:10 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147454026
+2026-07-19 13:53:10 |   worldLocation=UScriptStruct X=-773027.375,Y=-368265.875,Z=4287.21875
+2026-07-19 13:53:10 |   ignoreMask=boolean:false
+2026-07-19 13:53:10 |   toPriority=boolean:false
+2026-07-19 13:53:10 |   added=boolean:false
+2026-07-19 13:53:10 |   --
+2026-07-19 13:53:10 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-19 13:53:10 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147454260.WidgetTree_2147454259.WBP_Map_Body_Tree
+2026-07-19 13:53:10 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147454019
+2026-07-19 13:53:10 |   worldLocation=UScriptStruct X=517450.0,Y=-626940.0,Z=10980.0
+2026-07-19 13:53:10 |   ignoreMask=boolean:false
+2026-07-19 13:53:10 |   toPriority=boolean:false
+2026-07-19 13:53:10 |   added=boolean:false
+2026-07-19 13:53:10 |   --
+2026-07-19 13:53:10 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-19 13:53:10 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147454260.WidgetTree_2147454259.WBP_Map_Body_Tree
+2026-07-19 13:53:10 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147454012
+2026-07-19 13:53:10 |   worldLocation=UScriptStruct X=520440.0,Y=-727175.0,Z=41054.539062
+2026-07-19 13:53:10 |   ignoreMask=boolean:false
+2026-07-19 13:53:10 |   toPriority=boolean:false
+2026-07-19 13:53:10 |   added=boolean:false
+2026-07-19 13:53:10 |   --
+2026-07-19 13:53:10 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-19 13:53:10 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147454260.WidgetTree_2147454259.WBP_Map_Body_Tree
+2026-07-19 13:53:10 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147454005
+2026-07-19 13:53:10 |   worldLocation=UScriptStruct X=526910.1875,Y=-581727.625,Z=18204.207031
+2026-07-19 13:53:10 |   ignoreMask=boolean:false
+2026-07-19 13:53:10 |   toPriority=boolean:false
+2026-07-19 13:53:10 |   added=boolean:false
+2026-07-19 13:53:10 |   --
+2026-07-19 13:53:10 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-19 13:53:10 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147454260.WidgetTree_2147454259.WBP_Map_Body_Tree
+2026-07-19 13:53:10 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147453998
+2026-07-19 13:53:10 |   worldLocation=UScriptStruct X=458095.0,Y=-694560.0,Z=19325.0
+2026-07-19 13:53:10 |   ignoreMask=boolean:false
+2026-07-19 13:53:10 |   toPriority=boolean:false
+2026-07-19 13:53:10 |   added=boolean:false
+2026-07-19 13:53:10 |   --
+2026-07-19 13:53:10 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-19 13:53:10 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147454260.WidgetTree_2147454259.WBP_Map_Body_Tree
+2026-07-19 13:53:10 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147453991
+2026-07-19 13:53:10 |   worldLocation=UScriptStruct X=571870.0,Y=-733420.0,Z=18000.0
+2026-07-19 13:53:10 |   ignoreMask=boolean:false
+2026-07-19 13:53:10 |   toPriority=boolean:false
+2026-07-19 13:53:10 |   added=boolean:false
+2026-07-19 13:53:10 |   --
+2026-07-19 13:53:10 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-19 13:53:10 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147454260.WidgetTree_2147454259.WBP_Map_Body_Tree
+2026-07-19 13:53:10 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147453984
+2026-07-19 13:53:10 |   worldLocation=UScriptStruct X=601096.75,Y=-572063.0625,Z=30180.0
+2026-07-19 13:53:10 |   ignoreMask=boolean:false
+2026-07-19 13:53:10 |   toPriority=boolean:false
+2026-07-19 13:53:10 |   added=boolean:false
+2026-07-19 13:53:10 |   --
+2026-07-19 13:53:10 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-19 13:53:10 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147454260.WidgetTree_2147454259.WBP_Map_Body_Tree
+2026-07-19 13:53:10 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147453977
+2026-07-19 13:53:10 |   worldLocation=UScriptStruct X=491580.78125,Y=-725697.0625,Z=12042.805664
+2026-07-19 13:53:10 |   ignoreMask=boolean:false
+2026-07-19 13:53:10 |   toPriority=boolean:false
+2026-07-19 13:53:10 |   added=boolean:false
+2026-07-19 13:53:10 |   --
+2026-07-19 13:53:10 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-19 13:53:10 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147454260.WidgetTree_2147454259.WBP_Map_Body_MW5
+2026-07-19 13:53:10 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147453970
+2026-07-19 13:53:10 |   worldLocation=UScriptStruct X=-46108.394531,Y=302547.8125,Z=-1928.493652
+2026-07-19 13:53:10 |   ignoreMask=boolean:false
+2026-07-19 13:53:10 |   toPriority=boolean:false
+2026-07-19 13:53:10 |   added=boolean:false
+2026-07-19 13:53:10 |   --
+2026-07-19 13:53:10 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-19 13:53:10 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147454260.WidgetTree_2147454259.WBP_Map_Body_MW5
+2026-07-19 13:53:10 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147453963
+2026-07-19 13:53:10 |   worldLocation=UScriptStruct X=97716.3125,Y=307499.6875,Z=17330.396484
+2026-07-19 13:53:10 |   ignoreMask=boolean:false
+2026-07-19 13:53:10 |   toPriority=boolean:false
+2026-07-19 13:53:10 |   added=boolean:false
+2026-07-19 13:53:10 |   --
+2026-07-19 13:53:10 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-19 13:53:10 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147454260.WidgetTree_2147454259.WBP_Map_Body_MW5
+2026-07-19 13:53:10 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147453956
+2026-07-19 13:53:10 |   worldLocation=UScriptStruct X=122760.0,Y=318710.0,Z=320.0
+2026-07-19 13:53:10 |   ignoreMask=boolean:false
+2026-07-19 13:53:10 |   toPriority=boolean:false
+2026-07-19 13:53:10 |   added=boolean:false
+2026-07-19 13:53:10 |   --
+2026-07-19 13:53:10 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-19 13:53:10 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147454260.WidgetTree_2147454259.WBP_Map_Body_MW5
+2026-07-19 13:53:10 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147453949
+2026-07-19 13:53:10 |   worldLocation=UScriptStruct X=50564.78125,Y=357757.46875,Z=29.70578
+2026-07-19 13:53:10 |   ignoreMask=boolean:false
+2026-07-19 13:53:10 |   toPriority=boolean:false
+2026-07-19 13:53:10 |   added=boolean:false
+2026-07-19 13:53:10 |   --
+2026-07-19 13:53:10 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-19 13:53:10 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147454260.WidgetTree_2147454259.WBP_Map_Body_MW5
+2026-07-19 13:53:10 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147453942
+2026-07-19 13:53:10 |   worldLocation=UScriptStruct X=187731.203125,Y=359897.25,Z=2647.322998
+2026-07-19 13:53:10 |   ignoreMask=boolean:false
+2026-07-19 13:53:10 |   toPriority=boolean:false
+2026-07-19 13:53:10 |   added=boolean:false
+2026-07-19 13:53:10 |   --
+2026-07-19 13:53:10 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-19 13:53:10 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147454260.WidgetTree_2147454259.WBP_Map_Body_MW5
+2026-07-19 13:53:10 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147453935
+2026-07-19 13:53:10 |   worldLocation=UScriptStruct X=-1033347.9375,Y=-358750.8125,Z=7958.068848
+2026-07-19 13:53:10 |   ignoreMask=boolean:false
+2026-07-19 13:53:10 |   toPriority=boolean:false
+2026-07-19 13:53:10 |   added=boolean:false
+2026-07-19 13:53:10 |   --
+2026-07-19 13:53:10 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-19 13:53:10 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147454260.WidgetTree_2147454259.WBP_Map_Body_MW5
+2026-07-19 13:53:10 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147453928
+2026-07-19 13:53:10 |   worldLocation=UScriptStruct X=90345.453125,Y=534007.8125,Z=3685.106689
+2026-07-19 13:53:10 |   ignoreMask=boolean:false
+2026-07-19 13:53:10 |   toPriority=boolean:false
+2026-07-19 13:53:10 |   added=boolean:false
+2026-07-19 13:53:10 |   --
+2026-07-19 13:53:10 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-19 13:53:10 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147454260.WidgetTree_2147454259.WBP_Map_Body_MW5
+2026-07-19 13:53:10 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147453921
+2026-07-19 13:53:10 |   worldLocation=UScriptStruct X=-450359.53125,Y=356886.21875,Z=3561.442139
+2026-07-19 13:53:10 |   ignoreMask=boolean:false
+2026-07-19 13:53:10 |   toPriority=boolean:false
+2026-07-19 13:53:10 |   added=boolean:false
+2026-07-19 13:53:10 |   --
+2026-07-19 13:53:10 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-19 13:53:10 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147454260.WidgetTree_2147454259.WBP_Map_Body_MW5
+2026-07-19 13:53:10 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147453914
+2026-07-19 13:53:10 |   worldLocation=UScriptStruct X=-404768.1875,Y=-444910.75,Z=-695.882385
+2026-07-19 13:53:10 |   ignoreMask=boolean:false
+2026-07-19 13:53:10 |   toPriority=boolean:false
+2026-07-19 13:53:10 |   added=boolean:false
+2026-07-19 13:53:10 |   --
+2026-07-19 13:53:10 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-19 13:53:10 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147454260.WidgetTree_2147454259.WBP_Map_Body_MW5
+2026-07-19 13:53:10 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147453907
+2026-07-19 13:53:10 |   worldLocation=UScriptStruct X=-558869.9375,Y=-619480.75,Z=-1819.683716
+2026-07-19 13:53:10 |   ignoreMask=boolean:false
+2026-07-19 13:53:10 |   toPriority=boolean:false
+2026-07-19 13:53:10 |   added=boolean:false
+2026-07-19 13:53:10 |   --
+2026-07-19 13:53:10 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-19 13:53:10 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147454260.WidgetTree_2147454259.WBP_Map_Body_MW5
+2026-07-19 13:53:10 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147453900
+2026-07-19 13:53:10 |   worldLocation=UScriptStruct X=-169138.25,Y=575683.125,Z=-1814.144409
+2026-07-19 13:53:10 |   ignoreMask=boolean:false
+2026-07-19 13:53:10 |   toPriority=boolean:false
+2026-07-19 13:53:10 |   added=boolean:false
+2026-07-19 13:53:10 |   --
+2026-07-19 13:53:10 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-19 13:53:10 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147454260.WidgetTree_2147454259.WBP_Map_Body_MW5
+2026-07-19 13:53:10 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147453893
+2026-07-19 13:53:10 |   worldLocation=UScriptStruct X=39324.882812,Y=-18772.695312,Z=6701.489746
+2026-07-19 13:53:10 |   ignoreMask=boolean:false
+2026-07-19 13:53:10 |   toPriority=boolean:false
+2026-07-19 13:53:10 |   added=boolean:false
+2026-07-19 13:53:10 |   --
+2026-07-19 13:53:10 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-19 13:53:10 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147454260.WidgetTree_2147454259.WBP_Map_Body_MW5
+2026-07-19 13:53:10 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147453886
+2026-07-19 13:53:10 |   worldLocation=UScriptStruct X=262730.0,Y=75740.0,Z=-3182.999756
+2026-07-19 13:53:10 |   ignoreMask=boolean:false
+2026-07-19 13:53:10 |   toPriority=boolean:false
+2026-07-19 13:53:10 |   added=boolean:false
+2026-07-19 13:53:10 |   --
+2026-07-19 13:53:10 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-19 13:53:10 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147454260.WidgetTree_2147454259.WBP_Map_Body_MW5
+2026-07-19 13:53:10 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147453879
+2026-07-19 13:53:10 |   worldLocation=UScriptStruct X=109790.0,Y=-5880.0,Z=22180.0
+2026-07-19 13:53:10 |   ignoreMask=boolean:false
+2026-07-19 13:53:10 |   toPriority=boolean:false
+2026-07-19 13:53:10 |   added=boolean:false
+2026-07-19 13:53:10 |   --
+2026-07-19 13:53:10 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-19 13:53:10 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147454260.WidgetTree_2147454259.WBP_Map_Body_MW5
+2026-07-19 13:53:10 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147453872
+2026-07-19 13:53:10 |   worldLocation=UScriptStruct X=14681.051758,Y=-132067.5625,Z=2994.48999
+2026-07-19 13:53:10 |   ignoreMask=boolean:false
+2026-07-19 13:53:10 |   toPriority=boolean:false
+2026-07-19 13:53:10 |   added=boolean:false
+2026-07-19 13:53:10 |   --
+2026-07-19 13:53:10 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-19 13:53:10 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147454260.WidgetTree_2147454259.WBP_Map_Body_MW5
+2026-07-19 13:53:10 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147453865
+2026-07-19 13:53:10 |   worldLocation=UScriptStruct X=21745.544922,Y=-109001.640625,Z=-1343.315796
+2026-07-19 13:53:10 |   ignoreMask=boolean:false
+2026-07-19 13:53:10 |   toPriority=boolean:false
+2026-07-19 13:53:10 |   added=boolean:false
+2026-07-19 13:53:10 |   --
+2026-07-19 13:53:10 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-19 13:53:10 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147454260.WidgetTree_2147454259.WBP_Map_Body_MW5
+2026-07-19 13:53:10 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147453858
+2026-07-19 13:53:10 |   worldLocation=UScriptStruct X=15843.515625,Y=-130382.898438,Z=3160.84375
+2026-07-19 13:53:10 |   ignoreMask=boolean:false
+2026-07-19 13:53:10 |   toPriority=boolean:false
+2026-07-19 13:53:10 |   added=boolean:false
+2026-07-19 13:53:10 |   --
+2026-07-19 13:53:10 | HookPath=/Game/Pal/Blueprint/UI/UserInterface/Map/WBP_Map_Body.WBP_Map_Body_C:Add Icon By Location
+2026-07-19 13:53:10 |   self=UObject class=WBP_Map_Body_C name=WBP_Map_Body_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_PalOverallUILayout_C_2147481889.WidgetTree_2147481888.WBP_Map_Base_C_2147454260.WidgetTree_2147454259.WBP_Map_Body_MW5
+2026-07-19 13:53:10 |   widget=UObject class=WBP_Map_IconBoss_C name=WBP_Map_IconBoss_C /Engine/Transient.PalGameEngine_2147482588:BP_PalGameInstance_C_2147482476.WBP_Map_IconBoss_C_2147453851
+2026-07-19 13:53:10 |   worldLocation=UScriptStruct X=-821552.125,Y=46132.058594,Z=51332.957031
+2026-07-19 13:53:10 |   ignoreMask=boolean:false
+2026-07-19 13:53:10 |   toPriority=boolean:false
+2026-07-19 13:53:10 |   added=boolean:false
+2026-07-19 13:53:10 |   --

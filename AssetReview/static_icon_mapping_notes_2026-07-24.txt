@@ -1,0 +1,89 @@
+PalRadarPrecursor static/dynamic icon asset notes
+Date: 2026-07-24
+
+Export root:
+D:\PalOutput\Exports\Pal\Content\Pal\Texture
+
+Review sheets:
+D:\Steam\steamapps\common\Palworld\Pal\Binaries\Win64\Mods\PalRadarPrecursor\AssetReview\ui_icon_candidates_sheet.png
+D:\Steam\steamapps\common\Palworld\Pal\Binaries\Win64\Mods\PalRadarPrecursor\AssetReview\map_marker_icon_shortlist.png
+
+FModel note:
+Texture export works with UE version GAME_UE5_1 on this machine. GAME_UE5_4 produced PF_Unknown/SizeX=0 texture shells.
+
+Recommended static map marker icons:
+FastTravel:
+  /Game/Pal/Texture/UI/InGame/T_icon_compass_FTtower.T_icon_compass_FTtower
+  Alternative: /Game/Pal/Texture/BuildObject/Icon/T_icon_buildObject_FastTravelPoint.T_icon_buildObject_FastTravelPoint
+
+MapUnlock:
+  /Game/Pal/Texture/UI/InGame/T_icon_compass_FTUnlockMap.T_icon_compass_FTUnlockMap
+
+BossTower:
+  /Game/Pal/Texture/UI/InGame/T_icon_compass_tower.T_icon_compass_tower
+  Alternative: /Game/Pal/Texture/UI/InGame/T_icon_compass_BossGate.T_icon_compass_BossGate
+
+Boss:
+  /Game/Pal/Texture/UI/InGame/T_icon_compass_boss.T_icon_compass_boss
+  Alternative: /Game/Pal/Texture/UI/Map/T_icon_compass_Boss_Unknown.T_icon_compass_Boss_Unknown
+
+Dungeon:
+  /Game/Pal/Texture/UI/InGame/T_icon_compass_dungeon.T_icon_compass_dungeon
+  Alternative: /Game/Pal/Texture/UI/IngameMenu/T_icon_dungeon.T_icon_dungeon
+
+DungeonBoss:
+  /Game/Pal/Texture/UI/InGame/T_icon_compass_KeyBoss.T_icon_compass_KeyBoss
+
+SkillFruit:
+  /Game/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Farm_SkillFruits.T_icon_buildObject_Farm_SkillFruits
+  Alternatives:
+  /Game/Pal/Texture/UI/InGame/SkillIcon/T_icon_skill_pal_Harvest.T_icon_skill_pal_Harvest
+  /Game/Pal/Texture/UI/InGame/SkillIcon/T_icon_skill_pal_GetEgg.T_icon_skill_pal_GetEgg
+
+Relic / collectible statue:
+  /Game/Pal/Texture/BuildObject/PNG/T_icon_buildObject_BuildableGoddessStatue.T_icon_buildObject_BuildableGoddessStatue
+  Alternative: /Game/Pal/Texture/BuildObject/PNG/T_icon_buildObject_YakushimaBoss002_Relic.T_icon_buildObject_YakushimaBoss002_Relic
+
+AncientRelicRecycler / special facility:
+  /Game/Pal/Texture/BuildObject/PNG/T_icon_buildObject_AncientRelicRecycler.T_icon_buildObject_AncientRelicRecycler
+
+Chest:
+  /Game/Pal/Texture/BuildObject/PNG/T_icon_buildObject_ItemChest.T_icon_buildObject_ItemChest
+  Variants:
+  /Game/Pal/Texture/BuildObject/PNG/T_icon_buildObject_ItemChest_02.T_icon_buildObject_ItemChest_02
+  /Game/Pal/Texture/BuildObject/PNG/T_icon_buildObject_ItemChest_03.T_icon_buildObject_ItemChest_03
+  /Game/Pal/Texture/BuildObject/PNG/T_icon_buildObject_ItemChest_04.T_icon_buildObject_ItemChest_04
+  /Game/Pal/Texture/BuildObject/PNG/T_icon_buildObject_GuildChest.T_icon_buildObject_GuildChest
+  /Game/Pal/Texture/BuildObject/Icon/T_icon_buildObject_WeaponChest.T_icon_buildObject_WeaponChest
+  Alternative map-style fallback: /Game/Pal/Texture/UI/InGame/T_icon_compass_Search_Treasure.T_icon_compass_Search_Treasure
+
+OilField:
+  /Game/Pal/Texture/UI/InGame/T_icon_compass_Oilrig.T_icon_compass_Oilrig
+  Alternative: /Game/Pal/Texture/BuildObject/PNG/T_icon_buildObject_OilPump.T_icon_buildObject_OilPump
+
+Resource nodes:
+  Copper: /Game/Pal/Texture/BuildObject/PNG/T_icon_buildObject_CopperPit.T_icon_buildObject_CopperPit
+  Coal: /Game/Pal/Texture/BuildObject/PNG/T_icon_buildObject_CoalPit.T_icon_buildObject_CoalPit
+  Stone: /Game/Pal/Texture/BuildObject/PNG/T_icon_buildObject_StonePit.T_icon_buildObject_StonePit
+  Sulfur: /Game/Pal/Texture/BuildObject/PNG/T_icon_buildObject_SulfurPit.T_icon_buildObject_SulfurPit
+  Quartz: /Game/Pal/Texture/BuildObject/PNG/T_icon_buildObject_QuartzPit.T_icon_buildObject_QuartzPit
+
+Recommended dynamic/radar support icons:
+Elements:
+  /Game/Pal/Texture/UI/InGame/T_Icon_element_s_00.T_Icon_element_s_00
+  /Game/Pal/Texture/UI/InGame/T_Icon_element_s_01.T_Icon_element_s_01
+  /Game/Pal/Texture/UI/InGame/T_Icon_element_s_02.T_Icon_element_s_02
+  /Game/Pal/Texture/UI/InGame/T_Icon_element_s_03.T_Icon_element_s_03
+  /Game/Pal/Texture/UI/InGame/T_Icon_element_s_04.T_Icon_element_s_04
+  /Game/Pal/Texture/UI/InGame/T_Icon_element_s_05.T_Icon_element_s_05
+  /Game/Pal/Texture/UI/InGame/T_Icon_element_s_06.T_Icon_element_s_06
+  /Game/Pal/Texture/UI/InGame/T_Icon_element_s_07.T_Icon_element_s_07
+  /Game/Pal/Texture/UI/InGame/T_Icon_element_s_08.T_Icon_element_s_08
+
+Rare/strong markers:
+  /Game/Pal/Texture/UI/InGame/T_icon_enemy_strong.T_icon_enemy_strong
+  /Game/Pal/Texture/UI/InGame/T_icon_pal_rare.T_icon_pal_rare
+  /Game/Pal/Texture/UI/InGame/T_icon_enemy_rarity_01.T_icon_enemy_rarity_01
+
+Implementation recommendation:
+Start custom overlay with the map-style UI/InGame compass icons for visual consistency. Keep BuildObject/PNG icons available for tooltip, filter list, or enlarged selected marker details because they are more descriptive but less map-like at tiny sizes.
