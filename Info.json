@@ -1,0 +1,29 @@
+{
+  "ModName": "\u63A2\u7D22\u8005\u7684\u9057\u4EA7 (Explorer\u0027s Legacy)",
+  "PackageName": "PalRadarPrecursor",
+  "Thumbnail": "thumbnail.jpg",
+  "Version": "1.0.1",
+  "DebugMode": false,
+  "MinRevision": 82182,
+  "Author": "\u541B\u83AB\u8214",
+  "Dependencies": null,
+  "Tags": [
+    "UE4SS",
+    "Utilities",
+    "User Interface"
+  ],
+  "InstallRule": [
+    {
+      "Type": "Lua",
+      "Targets": [
+        "./Scripts"
+      ]
+    },
+    {
+      "Type": "Paks",
+      "Targets": [
+        "./Paks/"
+      ]
+    }
+  ]
+}

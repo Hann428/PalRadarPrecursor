@@ -3,7 +3,9 @@ local Config = {
     RefreshRateMs = 250,
     ScanInterval = 2.0,
     MapProbeInterval = 2.0,
-    MapHookRetryMs = 5000,
+    MapHookRetryMs = 1000,
+    MapWidgetHookMode = "polling",
+    MapHookPollingLogInterval = 8.0,
     EnableMapWidgetProbe = false,
     EnableNativeMapInjection = false,
     EnableNativeMapHookTrace = false,
@@ -174,8 +176,8 @@ local Config = {
             MaxLiveIcons = 1500
         },
         Cleanup = {
-            RegisterMapDestructHook = true,
-            RegisterMapToggleKey = true,
+            RegisterMapDestructHook = false,
+            RegisterMapToggleKey = false,
             RemoveWidgetsOnMapClose = true
         },
         CategoryOrder = {
@@ -596,7 +598,29 @@ local Config = {
             -- PalRadarPrecursor content package. While false, Lua can still test
             -- the brush replacement path with the game's original textures.
             PreferPackagedTextures = false,
+            EnablePackagedTextureCandidates = false,
             FallbackToGameTexturesForTesting = true,
+            DiskTextureFallback = {
+                Enabled = true,
+                RootRelativePath = "Assets/RuntimeTextures",
+                PalIconNormalRelativePath = "PalIcon/Normal",
+                TextureByCategory = {
+                    Chest = "StaticMap/BuildObject/T_icon_buildObject_ItemChest.png",
+                    SkillFruit = "StaticMap/BuildObject/T_icon_buildObject_Farm_SkillFruits.png",
+                    ResourceNode = "StaticMap/BuildObject/T_icon_buildObject_SkyIslandOrePit.png",
+                    ResourceCoal = "StaticMap/BuildObject/T_icon_buildObject_CoalPit.png",
+                    ResourceSulfur = "StaticMap/BuildObject/T_icon_buildObject_SulfurPit.png",
+                    ResourceQuartz = "StaticMap/BuildObject/T_icon_buildObject_QuartzPit.png",
+                    ResourceSkyIslandOre = "StaticMap/BuildObject/T_icon_buildObject_SkyIslandOrePit.png",
+                    ResourceWorldTreeOre = "StaticMap/BuildObject/T_icon_buildObject_SkyIslandOrePit.png",
+                    Relic = "StaticMap/BuildObject/T_icon_buildObject_BuildableGoddessStatue.png",
+                    RelicCommon = "StaticMap/BuildObject/T_icon_buildObject_BuildableGoddessStatue.png",
+                    PalRelicStatue = "StaticMap/BuildObject/T_icon_buildObject_BuildableGoddessStatue.png",
+                    PalEgg = "StaticMap/BuildObject/T_icon_buildObject_HatchingPalEgg.png",
+                    FishingSpot = "StaticMap/Fishing/T_Fishing_FishPondIcon.png",
+                    FishingJunkSpot = "StaticMap/Compass/T_icon_compass_Search_Junk.png"
+                }
+            },
             BossPalIcons = {
                 Enabled = true,
                 PackagedBasePath = "/Game/PalRadarPrecursor/UI/Icons/PalIcon/Normal",
@@ -693,8 +717,8 @@ local Config = {
                 DungeonBoss = "/Game/Pal/Texture/UI/InGame/T_icon_compass_KeyBoss.T_icon_compass_KeyBoss",
                 FastTravel = "/Game/Pal/Texture/UI/InGame/T_icon_compass_FTtower.T_icon_compass_FTtower",
                 MapUnlock = "/Game/Pal/Texture/UI/InGame/T_icon_compass_FTUnlockMap.T_icon_compass_FTUnlockMap",
-                Chest = "/Game/Pal/Texture/BuildObject/PNG/T_icon_buildObject_ItemChest.T_icon_buildObject_ItemChest",
-                SkillFruit = "/Game/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Farm_SkillFruits.T_icon_buildObject_Farm_SkillFruits",
+                Chest = "/Game/Pal/Texture/UI/InGame/T_icon_compass_TreasureMap_01.T_icon_compass_TreasureMap_01",
+                SkillFruit = "/Game/Pal/Texture/UI/InGame/T_icon_pal_seed.T_icon_pal_seed",
                 TreasureMapPointStatic = "/Game/Pal/Texture/UI/InGame/T_icon_compass_TreasureMap_01.T_icon_compass_TreasureMap_01",
                 Note = "/Game/Pal/Texture/UI/InGame/T_icon_log_notice.T_icon_log_notice",
                 PalEgg = "/Game/Pal/Texture/BuildObject/PNG/T_icon_buildObject_HatchingPalEgg.T_icon_buildObject_HatchingPalEgg",

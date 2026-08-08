@@ -1,0 +1,69 @@
+探索者的遗产（Explorer's Legacy / PalRadarPrecursor）说明
+
+一、MOD 功能
+
+本 MOD 用于在《幻兽帕鲁》的 M 键大地图上显示额外探索信息，方便收集、清图和定位资源。
+
+当前主要功能：
+1. 在地图上显示多类静态坐标点，例如高塔、区域头目、悬赏头目、地下城、商人、NPC、巨鹫之像、地图解锁点、宝箱、技能果树、藏宝图点、笔记、帕鲁蛋、钓鱼点、打捞点、油田、矿点、遗物、帕鲁雕像等。
+2. 右侧提供 PalRadar Filter 筛选面板，可以按类型开关显示。
+3. 提供低配、标准、高配、全部等档位，用于控制单类图标生成上限，降低低配置机器卡顿风险。
+4. 支持普通帕鲁分布点查询，可切换帕鲁编号并显示对应分布点。
+5. 图标资源随 MOD 自带，不依赖玩家本机的 FModel 导出目录。
+
+二、Steam 创意工坊安装
+
+推荐方式：
+1. 订阅本 MOD。
+2. 同时订阅并启用 Steam 上的 UE4SS Experimental (Palworld)。
+3. 启动游戏，进入存档后按 M 打开地图。
+4. 点击右侧 PalRadar Filter 面板，根据需要开启对应类目。
+
+三、非 Steam 创意工坊手动安装
+
+如果不通过 Steam 创意工坊安装，可以手动放置本文件夹。
+
+目标路径：
+D:\Steam\steamapps\common\Palworld\Pal\Binaries\Win64\Mods\PalRadarPrecursor
+
+如果你的游戏安装在其他盘符或路径，请对应替换前半段路径，例如：
+你的游戏目录\Pal\Binaries\Win64\Mods\PalRadarPrecursor
+
+手动安装步骤：
+1. 安装适配当前 Palworld 版本的 UE4SS。
+2. 将整个 PalRadarPrecursor 文件夹复制到：
+   Palworld\Pal\Binaries\Win64\Mods\
+3. 确认最终结构类似：
+   Palworld\Pal\Binaries\Win64\Mods\PalRadarPrecursor\Scripts\main.lua
+   Palworld\Pal\Binaries\Win64\Mods\PalRadarPrecursor\Scripts\config.lua
+   Palworld\Pal\Binaries\Win64\Mods\PalRadarPrecursor\Scripts\Assets\RuntimeTextures\
+4. 打开：
+   Palworld\Pal\Binaries\Win64\Mods\mods.txt
+5. 添加或修改为：
+   PalRadarPrecursor : 1
+6. 保存 mods.txt，完整重启游戏。
+
+注意：
+1. 文件名是 mods.txt，不是 mod.txt。
+2. 如果你使用的是以文件夹名 3777580435 发布的版本，则 mods.txt 中应写：
+   3777580435 : 1
+   如果文件夹名改成 PalRadarPrecursor，则写：
+   PalRadarPrecursor : 1
+3. 不要同时启用 3777580435 和 PalRadarPrecursor 两份相同 MOD，否则可能重复加载或导致异常。
+4. UE4SS 的不同安装方式可能会把 MOD 展开到其他运行目录，这是 UE4SS/创意工坊机制导致的。手动安装时以 Pal\Binaries\Win64\Mods\mods.txt 中启用的文件夹名为准。
+
+四、使用建议
+
+1. 第一次打开地图后，点击右侧 PalRadar Filter 展开筛选面板。
+2. 低配电脑建议先使用“低配”或“标准”档位。
+3. 宝箱、帕鲁蛋、打捞点、矿点等数量很多，建议按需开启，不建议低配机器一次性开启全部。
+4. 如果开启某类后短暂卡顿，通常是图标正在懒加载，等待加载完成即可。
+5. 普通帕鲁分布建议一次只查看一种帕鲁。
+
+五、卸载
+
+1. 将 mods.txt 中对应项改为：
+   PalRadarPrecursor : 0
+2. 或删除 PalRadarPrecursor 文件夹。
+3. 如果使用 3777580435 文件夹名，则对应关闭或删除 3777580435。
+

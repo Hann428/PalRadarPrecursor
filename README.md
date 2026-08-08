@@ -5,8 +5,8 @@
 ![Preview](preview.jpg)
 
 [![Steam Workshop](https://img.shields.io/badge/Steam-创意工坊订阅-blue.svg)](https://steamcommunity.com/sharedfiles/filedetails/?id=3777580435)
-[![Version](https://img.shields.io/badge/Version-1.0.0-green.svg)]()
-[![Game Version](https://img.shields.io/badge/Palworld-v0.3+-orange.svg)]()
+[![Version](https://img.shields.io/badge/Version-1.0.1-green.svg)]()
+[![Game Version](https://img.shields.io/badge/Palworld-v1.0+-orange.svg)]()
 
 ---
 
@@ -29,9 +29,10 @@
 ### 方式 B：GitHub 手动安装
 1. 确保已安装 **UE4SS**。
 2. 下载本仓库最新 [Releases](../../releases) zip 包。
-3. 将解压后的文件夹放入游戏目录：
+3. 将解压后的 `PalRadarPrecursor` 文件夹放入游戏目录：
    `Palworld/Pal/Binaries/Win64/Mods/`
-4. 确保在 `Mods/mods.txt` 中已启用该 MOD。
+4. 确保在 UE4SS 的 `mods.txt` 中启用该 MOD：
+   `PalRadarPrecursor : 1`
 
 ---
 

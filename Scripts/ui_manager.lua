@@ -14,6 +14,8 @@ local IsOverlayFilterHotkeysRegistered = false
 local IsOverlayFilterMouseRegistered = false
 local IsMapToggleCleanupRegistered = false
 local LastMapHookFailureLogTime = 0
+local LastMapHookDisabledLogTime = 0
+local LastMapPollingLogTime = 0
 local LastObservedMapBaseKey = nil
 local LastMapStaticPassAt = 0
 local LastMapToggleCleanupAt = 0
@@ -21,6 +23,46 @@ local LastTelemetryTime = 0
 local LastScanTime = 0
 local LastPacket = nil
 local DataProvider = nil
+
+local function LogSafeError(label, err)
+    print("[!] [UI_MANAGER] " .. tostring(label) .. " failed: " .. tostring(err))
+end
+
+local function SafeExecuteInGameThread(label, callback)
+    local ok, err = pcall(function()
+        ExecuteInGameThread(function()
+            local innerOk, innerErr = pcall(callback)
+            if not innerOk then
+                LogSafeError(label, innerErr)
+            end
+        end)
+    end)
+
+    if not ok then
+        LogSafeError(label .. ":schedule", err)
+    end
+end
+
+local function GetMapWidgetHookMode()
+    local overlayConfig = Config.OverlayMarkers or {}
+    local cleanupConfig = overlayConfig.Cleanup or {}
+    local mode = Config.MapWidgetHookMode or cleanupConfig.MapWidgetHookMode or "polling"
+    return string.lower(tostring(mode))
+end
+
+local function ShouldRegisterMapWidgetHooks()
+    local mode = GetMapWidgetHookMode()
+    return mode == "hook" or mode == "hooks" or mode == "registerhook"
+end
+
+local function LogPollingProbe(message)
+    local interval = Config.MapHookPollingLogInterval or 8.0
+    local now = os.clock()
+    if now - LastMapPollingLogTime >= interval then
+        LastMapPollingLogTime = now
+        print("[+] [UI_MANAGER] " .. tostring(message))
+    end
+end
 
 local function IsValidObject(obj)
     local ok, result = pcall(function()
@@ -201,12 +243,27 @@ local function TryRunMapStaticPassFromLiveWidget(source)
     end
     LastObservedMapBaseKey = mapKey
 
-    RunMapStaticPass(mapBase, source)
+    local ok, err = pcall(function()
+        RunMapStaticPass(mapBase, source)
+    end)
+    if not ok then
+        LogSafeError("map-static-pass:" .. tostring(source), err)
+        return false
+    end
     return true
 end
 
 local function RegisterMapWidgetHooks()
     if IsMapHookRegistered then return end
+    if not ShouldRegisterMapWidgetHooks() then
+        local now = os.clock()
+        if now - LastMapHookDisabledLogTime >= 10.0 then
+            LastMapHookDisabledLogTime = now
+            print("[+] [UI_MANAGER] Map widget RegisterHook disabled; using polling detection.")
+        end
+        return
+    end
+
     local overlayConfig = Config.OverlayMarkers or {}
     local cleanupConfig = overlayConfig.Cleanup or {}
     local registerDestructHook = cleanupConfig.RegisterMapDestructHook ~= false
@@ -235,10 +292,8 @@ local function RegisterMapWidgetHooks()
     for _, hookPath in ipairs(openHookPaths) do
         local ok, err = pcall(function()
             local preId, postId = RegisterHook(hookPath, function(self)
-                pcall(function()
-                    ExecuteInGameThread(function()
-                        RunMapStaticPass(self, hookPath)
-                    end)
+                SafeExecuteInGameThread("map-open:" .. tostring(hookPath), function()
+                    RunMapStaticPass(self, hookPath)
                 end)
             end)
             return preId, postId
@@ -288,15 +343,19 @@ local function StartMapHookRetryLoop()
     LoopAsync(Config.MapHookRetryMs or 2000, function()
         if not IsRadarActive then return true end
 
-        pcall(function()
-            ExecuteInGameThread(function()
-                if not IsMapHookRegistered then
-                    RegisterMapWidgetHooks()
-                    if not IsMapHookRegistered then
-                        TryRunMapStaticPassFromLiveWidget("retry-live-map-widget")
-                    end
+        SafeExecuteInGameThread("map-hook-retry", function()
+            if ShouldRegisterMapWidgetHooks() and not IsMapHookRegistered then
+                RegisterMapWidgetHooks()
+            end
+
+            if not IsMapHookRegistered then
+                local found = TryRunMapStaticPassFromLiveWidget("poll-live-map-widget")
+                if found then
+                    LogPollingProbe("Polling map detection found a live map widget.")
+                else
+                    LogPollingProbe("Polling map detection is waiting for a live map widget.")
                 end
-            end)
+            end
         end)
 
         return false
@@ -342,31 +401,27 @@ local function RegisterOverlayFilterHotkeys()
         local boundCategories = categories
         local boundLabel = label
         registerOne(hotkeySpec.Key, function()
-            pcall(function()
-                ExecuteInGameThread(function()
-                    local firstCategory = boundCategories[1]
-                    local visible = nil
-                    if firstCategory then
-                        visible = MapController.ToggleOverlayCategoryVisibility(firstCategory)
-                    end
-                    for index = 2, #boundCategories do
-                        MapController.SetOverlayCategoryVisibility(boundCategories[index], visible == true)
-                    end
-                    print("[+] [OVERLAY_FILTER] hotkey group " .. tostring(boundLabel) .. "=" .. tostring(visible == true and "ON" or "OFF"))
-                end)
+            SafeExecuteInGameThread("filter-hotkey:" .. tostring(boundLabel), function()
+                local firstCategory = boundCategories[1]
+                local visible = nil
+                if firstCategory then
+                    visible = MapController.ToggleOverlayCategoryVisibility(firstCategory)
+                end
+                for index = 2, #boundCategories do
+                    MapController.SetOverlayCategoryVisibility(boundCategories[index], visible == true)
+                end
+                print("[+] [OVERLAY_FILTER] hotkey group " .. tostring(boundLabel) .. "=" .. tostring(visible == true and "ON" or "OFF"))
             end)
         end, label)
     end
 
     registerOne(runtimeFilters.ShowAllKey, function()
-        pcall(function()
-            ExecuteInGameThread(function()
-                if MapController.ToggleAllOverlayCategoriesVisibility then
-                    MapController.ToggleAllOverlayCategoriesVisibility()
-                else
-                    MapController.ShowAllOverlayCategories()
-                end
-            end)
+        SafeExecuteInGameThread("filter-toggle-all", function()
+            if MapController.ToggleAllOverlayCategoriesVisibility then
+                MapController.ToggleAllOverlayCategoriesVisibility()
+            else
+                MapController.ShowAllOverlayCategories()
+            end
         end)
     end, "ToggleAll")
 
@@ -376,13 +431,14 @@ local function RegisterOverlayFilterHotkeys()
         if mouseKey then
             local ok, err = pcall(function()
                 RegisterKeyBind(mouseKey, function()
-                    pcall(function()
-                        ExecuteInGameThread(function()
-                            if MapController.HandleOverlayFilterPanelClick then
-                                MapController.HandleOverlayFilterPanelClick()
-                            end
-                        end)
+                    local clickOk, clickErr = pcall(function()
+                        if MapController.HandleOverlayFilterPanelClick then
+                            MapController.HandleOverlayFilterPanelClick()
+                        end
                     end)
+                    if not clickOk then
+                        LogSafeError("filter-panel-click", clickErr)
+                    end
                 end)
             end)
             if ok then
@@ -417,18 +473,16 @@ local function RegisterMapToggleCleanupKey()
 
     local ok, err = pcall(function()
         RegisterKeyBind(keyValue, function()
-            pcall(function()
-                ExecuteInGameThread(function()
-                    local now = os.clock()
-                    if now - LastMapToggleCleanupAt < 0.5 then return end
-                    if now - LastMapStaticPassAt < 0.75 then return end
-                    LastMapToggleCleanupAt = now
+            SafeExecuteInGameThread("map-toggle-cleanup", function()
+                local now = os.clock()
+                if now - LastMapToggleCleanupAt < 0.5 then return end
+                if now - LastMapStaticPassAt < 0.75 then return end
+                LastMapToggleCleanupAt = now
 
-                    ResetMapInjectionGuards()
-                    if MapController.PrepareForMapToggle then
-                        MapController.PrepareForMapToggle("key-M")
-                    end
-                end)
+                ResetMapInjectionGuards()
+                if MapController.PrepareForMapToggle then
+                    MapController.PrepareForMapToggle("key-M")
+                end
             end)
         end)
     end)
@@ -476,7 +530,7 @@ local function ExecuteTacticalRenderFrame()
     MapController.GenerateStaticMarkers(StaticMarkers, dataState, mapBase)
     MapController.GenerateOverlayMarkers(StaticMarkers, dataState, mapBase)
 
-    if packet and packet.Characters then
+    if packet and type(packet.Characters) == "table" then
         for _, entry in ipairs(packet.Characters) do
             local actor = entry.Instance
             if IsValidObject(actor) then
@@ -510,6 +564,7 @@ function UIManager.InitializeRadarLoop(dataProvider)
         .. tostring(cleanupConfig.RegisterMapDestructHook ~= false)
         .. " mapToggleKey=" .. tostring(cleanupConfig.RegisterMapToggleKey ~= false)
         .. " removeWidgetsOnMapClose=" .. tostring(cleanupConfig.RemoveWidgetsOnMapClose ~= false))
+    print("[+] [UI_MANAGER] Map widget hook mode=" .. tostring(GetMapWidgetHookMode()))
     RegisterMapWidgetHooks()
     RegisterOverlayFilterHotkeys()
     RegisterMapToggleCleanupKey()
@@ -524,10 +579,8 @@ function UIManager.InitializeRadarLoop(dataProvider)
 
     LoopAsync(Config.RefreshRateMs, function()
         if not IsRadarActive then return true end
-        pcall(function()
-            ExecuteInGameThread(function()
-                ExecuteTacticalRenderFrame()
-            end)
+        SafeExecuteInGameThread("dynamic-render-frame", function()
+            ExecuteTacticalRenderFrame()
         end)
         return false
     end)

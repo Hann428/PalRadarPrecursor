@@ -48,9 +48,25 @@ local OverlayLazyQueue = {}
 local OverlayLazyQueued = {}
 local OverlayLazyActiveCategory = nil
 local OverlayActiveLimitProfileName = nil
+local OverlayLazyLoopCallbacks = {}
 MapController.OverlayLazyRunSerial = 0
 local EnsureOverlayCategoryIconsGenerated = function() return false end
 local SetOverlayFilterPanelProgress = function() end
+
+function MapController.GetScriptDirectory()
+    if ScriptFilePaths.ScriptDir then return ScriptFilePaths.ScriptDir end
+
+    local source = debug.getinfo(1, "S").source or ""
+    source = source:gsub("^@", "")
+    local dir = source:match("^(.*[\\/])")
+    if dir and dir ~= "" then
+        ScriptFilePaths.ScriptDir = dir
+    else
+        ScriptFilePaths.ScriptDir = ""
+    end
+
+    return ScriptFilePaths.ScriptDir
+end
 
 function MapController.IsOverlayMarkerCategoryName(categoryName)
     return type(categoryName) == "string"
@@ -2582,22 +2598,93 @@ local function SetOverlayIconRuntimeVisibility(icon, isVisible)
     return ok
 end
 
-local function RememberOverlayIcon(categoryName, key, icon)
+function MapController.RemoveOverlayIconWidget(icon)
+    if not IsValidObject(icon) then return false end
+
+    local ok = pcall(function()
+        if icon.SetVisibility then icon:SetVisibility(1) end
+        if icon.SetRenderOpacity then icon:SetRenderOpacity(0.0) end
+        if icon.RemoveFromParent then icon:RemoveFromParent() end
+    end)
+    return ok == true
+end
+
+function MapController.CollectMapIconObjectsByClass(className)
+    local icons = {}
+    local objects = nil
+    pcall(function()
+        objects = FindAllOf(className)
+    end)
+
+    if objects then
+        for _, obj in ipairs(objects) do
+            if IsValidObject(obj) then
+                icons[#icons + 1] = obj
+            end
+        end
+    end
+
+    return icons
+end
+
+function MapController.BuildIconAddressSet(icons)
+    local addresses = {}
+    for _, icon in ipairs(icons or {}) do
+        if IsValidObject(icon) then
+            addresses[GetObjectAddress(icon)] = true
+        end
+    end
+    return addresses
+end
+
+function MapController.CollectNewSupplyIcons(beforeAddresses, primaryIcon)
+    local extraIcons = {}
+    local primaryAddress = IsValidObject(primaryIcon) and GetObjectAddress(primaryIcon) or nil
+
+    for _, icon in ipairs(MapController.CollectMapIconObjectsByClass("WBP_Map_IconSupply_C")) do
+        local address = GetObjectAddress(icon)
+        if beforeAddresses[address] ~= true and address ~= primaryAddress then
+            extraIcons[#extraIcons + 1] = icon
+        end
+    end
+
+    return extraIcons
+end
+
+local function RememberOverlayIcon(categoryName, key, icon, extraIcons)
     if not IsValidObject(icon) then return end
+
+    local extras = {}
+    local primaryAddress = GetObjectAddress(icon)
+    if type(extraIcons) == "table" then
+        for _, extraIcon in ipairs(extraIcons) do
+            if IsValidObject(extraIcon) and GetObjectAddress(extraIcon) ~= primaryAddress then
+                extras[#extras + 1] = extraIcon
+            end
+        end
+    end
 
     OverlayIconRecords[#OverlayIconRecords + 1] = {
         Category = categoryName,
         Key = key,
-        Icon = icon
+        Icon = icon,
+        ExtraIcons = extras
     }
 
-    SetOverlayIconRuntimeVisibility(icon, IsOverlayCategoryRuntimeVisible(categoryName))
+    local visible = IsOverlayCategoryRuntimeVisible(categoryName)
+    SetOverlayIconRuntimeVisibility(icon, visible)
+    for _, extraIcon in ipairs(extras) do
+        SetOverlayIconRuntimeVisibility(extraIcon, visible)
+    end
 end
 
 function MapController.CountOverlayLiveIcons()
     local count = 0
     for _, record in ipairs(OverlayIconRecords) do
         if IsValidObject(record.Icon) then count = count + 1 end
+        for _, extraIcon in ipairs(record.ExtraIcons or {}) do
+            if IsValidObject(extraIcon) then count = count + 1 end
+        end
     end
     return count
 end
@@ -2609,12 +2696,13 @@ function MapController.DestroyOverlayIconsForCategory(categoryName)
     local keptRecords = {}
     for _, record in ipairs(OverlayIconRecords) do
         if record.Category == categoryName then
-            local icon = record.Icon
-            if IsValidObject(icon) then
-                local ok = pcall(function()
-                    if icon.RemoveFromParent then icon:RemoveFromParent() end
-                end)
-                if ok then destroyed = destroyed + 1 end
+            if MapController.RemoveOverlayIconWidget(record.Icon) then
+                destroyed = destroyed + 1
+            end
+            for _, extraIcon in ipairs(record.ExtraIcons or {}) do
+                if MapController.RemoveOverlayIconWidget(extraIcon) then
+                    destroyed = destroyed + 1
+                end
             end
         else
             keptRecords[#keptRecords + 1] = record
@@ -2707,14 +2795,13 @@ function MapController.PrepareForMapToggle(reason)
 
     local removedIcons = 0
     for _, record in ipairs(OverlayIconRecords) do
-        local icon = record.Icon
-        if IsValidObject(icon) then
-            local ok = pcall(function()
-                if icon.SetVisibility then icon:SetVisibility(1) end
-                if icon.SetRenderOpacity then icon:SetRenderOpacity(0.0) end
-                if icon.RemoveFromParent then icon:RemoveFromParent() end
-            end)
-            if ok then removedIcons = removedIcons + 1 end
+        if MapController.RemoveOverlayIconWidget(record.Icon) then
+            removedIcons = removedIcons + 1
+        end
+        for _, extraIcon in ipairs(record.ExtraIcons or {}) do
+            if MapController.RemoveOverlayIconWidget(extraIcon) then
+                removedIcons = removedIcons + 1
+            end
         end
     end
 
@@ -2775,6 +2862,13 @@ function MapController.SetOverlayCategoryVisibility(categoryName, isVisible)
                 changed = changed + 1
             else
                 stale = stale + 1
+            end
+            for _, extraIcon in ipairs(record.ExtraIcons or {}) do
+                if SetOverlayIconRuntimeVisibility(extraIcon, visible) then
+                    changed = changed + 1
+                else
+                    stale = stale + 1
+                end
             end
         end
     end
@@ -3583,16 +3677,46 @@ local function NormalizeAssetObjectPath(assetPath)
     return objectPath, packagePath, leafName
 end
 
+MapController.OverlayTextureAssetCache = MapController.OverlayTextureAssetCache or {}
+MapController.OverlayTextureFileCache = MapController.OverlayTextureFileCache or {}
+MapController.OverlayTextureDiagnosticCounts = MapController.OverlayTextureDiagnosticCounts or {}
+
+function MapController.AppendLimitedTextureDiagnostic(categoryName, detail)
+    local categoryKey = tostring(categoryName or "unknown")
+    local count = MapController.OverlayTextureDiagnosticCounts[categoryKey] or 0
+    if count >= 3 then return end
+    MapController.OverlayTextureDiagnosticCounts[categoryKey] = count + 1
+    AppendOverlayMarkersLog("Texture diagnostic category=" .. categoryKey .. " detail=" .. tostring(detail))
+end
+
 local function LoadTextureAsset(texturePath)
     local objectPath, packagePath, leafName = NormalizeAssetObjectPath(texturePath)
     if not objectPath then return nil, "empty-path" end
 
+    local cached = MapController.OverlayTextureAssetCache[objectPath]
+    if cached then
+        if IsValidObject(cached.Texture) then
+            return cached.Texture, "cache:" .. tostring(cached.Source)
+        end
+        MapController.OverlayTextureAssetCache[objectPath] = nil
+    end
+
+    local loadedPackage = nil
+    local loadedObject = nil
     pcall(function()
-        LoadAsset(packagePath)
+        loadedPackage = LoadAsset(packagePath)
     end)
     pcall(function()
-        LoadAsset(objectPath)
+        loadedObject = LoadAsset(objectPath)
     end)
+    if IsValidObject(loadedObject) then
+        MapController.OverlayTextureAssetCache[objectPath] = { Texture = loadedObject, Source = "LoadAsset:" .. tostring(objectPath) }
+        return loadedObject, "LoadAsset:" .. tostring(objectPath)
+    end
+    if IsValidObject(loadedPackage) then
+        MapController.OverlayTextureAssetCache[objectPath] = { Texture = loadedPackage, Source = "LoadAsset:" .. tostring(packagePath) }
+        return loadedPackage, "LoadAsset:" .. tostring(packagePath)
+    end
 
     local staticFindCandidates = {
         objectPath,
@@ -3603,7 +3727,10 @@ local function LoadTextureAsset(texturePath)
         pcall(function()
             obj = StaticFindObject(candidate)
         end)
-        if IsValidObject(obj) then return obj, "StaticFindObject:" .. tostring(candidate) end
+        if IsValidObject(obj) then
+            MapController.OverlayTextureAssetCache[objectPath] = { Texture = obj, Source = "StaticFindObject:" .. tostring(candidate) }
+            return obj, "StaticFindObject:" .. tostring(candidate)
+        end
     end
 
     if leafName and leafName ~= "" then
@@ -3611,13 +3738,145 @@ local function LoadTextureAsset(texturePath)
         pcall(function()
             found = FindObject(nil, leafName, EObjectFlags.RF_NoFlags, EObjectFlags.RF_NoFlags)
         end)
-        if IsValidObject(found) then return found, "FindObject:" .. tostring(leafName) end
+        if IsValidObject(found) then
+            MapController.OverlayTextureAssetCache[objectPath] = { Texture = found, Source = "FindObject:" .. tostring(leafName) }
+            return found, "FindObject:" .. tostring(leafName)
+        end
     end
 
     return nil, "not-found:" .. tostring(objectPath)
 end
 
-local function GetOverlayIconTextureCandidates(categoryName, marker)
+function MapController.NormalizeRuntimeTextureFilePath(relativePath)
+    if not relativePath or tostring(relativePath) == "" then return nil end
+    local path = tostring(relativePath):gsub("/", "\\")
+    if path:match("^%a:[\\/]") or path:match("^\\\\") then return path end
+    return MapController.GetScriptDirectory() .. path
+end
+
+function MapController.DoesFileExist(path)
+    if not path or path == "" then return false end
+    local file = io.open(path, "rb")
+    if file then
+        file:close()
+        return true
+    end
+    return false
+end
+
+function MapController.FindKismetRenderingLibrary()
+    if MapController.OverlayKismetRenderingLibrary ~= nil then
+        if IsValidObject(MapController.OverlayKismetRenderingLibrary) then
+            return MapController.OverlayKismetRenderingLibrary, "cache"
+        end
+        MapController.OverlayKismetRenderingLibrary = nil
+    end
+
+    local candidates = {
+        "/Script/Engine.Default__KismetRenderingLibrary",
+        "KismetRenderingLibrary /Script/Engine.Default__KismetRenderingLibrary",
+        "/Script/Engine.KismetRenderingLibrary"
+    }
+    for _, path in ipairs(candidates) do
+        local obj = nil
+        pcall(function()
+            obj = StaticFindObject(path)
+        end)
+        if IsValidObject(obj) then
+            MapController.OverlayKismetRenderingLibrary = obj
+            return obj, "StaticFindObject:" .. tostring(path)
+        end
+    end
+
+    return nil, "not-found"
+end
+
+function MapController.LoadTextureFile(relativePath)
+    local filePath = MapController.NormalizeRuntimeTextureFilePath(relativePath)
+    if not filePath then return nil, "empty-file-path" end
+
+    local cached = MapController.OverlayTextureFileCache[filePath]
+    if cached then
+        if IsValidObject(cached.Texture) then
+            return cached.Texture, "cache:" .. tostring(cached.Source)
+        end
+        MapController.OverlayTextureFileCache[filePath] = nil
+    end
+
+    if not MapController.DoesFileExist(filePath) then
+        return nil, "file-not-found:" .. tostring(filePath)
+    end
+
+    local library, librarySource = MapController.FindKismetRenderingLibrary()
+    if not IsValidObject(library) then
+        return nil, "kismet-rendering-library-" .. tostring(librarySource)
+    end
+
+    local worldContext = nil
+    if type(OverlayLazyContext) == "table" then
+        worldContext = OverlayLazyContext.MapBase or OverlayLazyContext.MapBody
+    end
+
+    local attempts = {
+        {
+            "ImportFileAsTexture2D(world,path)",
+            function()
+                return library:ImportFileAsTexture2D(worldContext, filePath)
+            end
+        },
+        {
+            "Import File as Texture 2D(world,path)",
+            function()
+                local fn = library["Import File as Texture 2D"]
+                if not fn then error("function-not-found") end
+                return fn(library, worldContext, filePath)
+            end
+        },
+        {
+            "ImportFileAsTexture2D(path)",
+            function()
+                return library:ImportFileAsTexture2D(filePath)
+            end
+        },
+        {
+            "Import File as Texture 2D(path)",
+            function()
+                local fn = library["Import File as Texture 2D"]
+                if not fn then error("function-not-found") end
+                return fn(library, filePath)
+            end
+        }
+    }
+
+    local errors = {}
+    for _, attempt in ipairs(attempts) do
+        local texture = nil
+        local ok, result = pcall(function()
+            return attempt[2]()
+        end)
+        if ok then texture = result end
+        if IsValidObject(texture) then
+            MapController.OverlayTextureFileCache[filePath] = {
+                Texture = texture,
+                Source = tostring(attempt[1]) .. " via " .. tostring(librarySource)
+            }
+            return texture, "file:" .. tostring(attempt[1]) .. " path=" .. tostring(filePath)
+        end
+        errors[#errors + 1] = tostring(attempt[1]) .. "=" .. tostring(result)
+    end
+
+    return nil, "file-import-failed:" .. table.concat(errors, " | ")
+end
+
+function MapController.LoadOverlayTextureCandidate(textureCandidate)
+    if type(textureCandidate) ~= "table" then return nil, "invalid-candidate" end
+    if textureCandidate.FilePath then
+        return MapController.LoadTextureFile(textureCandidate.FilePath)
+    end
+    return LoadTextureAsset(textureCandidate.Path)
+end
+
+function MapController.GetOverlayIconTextureCandidates(categoryName, marker)
     local overlayConfig = Config.OverlayMarkers or {}
     local replacement = overlayConfig.TextureReplacement or {}
     if replacement.Enabled ~= true then return {} end
@@ -3628,11 +3887,58 @@ local function GetOverlayIconTextureCandidates(categoryName, marker)
     local packagedBySubtype = replacement.TextureByRelicSubtype or {}
     local fallbackByCategory = replacement.GameTextureFallbackByCategory or {}
     local fallbackBySubtype = replacement.GameTextureFallbackByRelicSubtype or {}
+    local diskFallback = replacement.DiskTextureFallback or {}
     local candidates = {}
 
     local function add(path, source)
         if path and path ~= "" then
             candidates[#candidates + 1] = { Path = path, Source = source }
+        end
+    end
+
+    local function addFile(path, source)
+        if path and path ~= "" then
+            candidates[#candidates + 1] = { FilePath = path, Source = source }
+        end
+    end
+
+    local function addDiskTexturePaths()
+        if diskFallback.Enabled ~= true then return end
+        local root = tostring(diskFallback.RootRelativePath or "")
+        if root == "" then return end
+        root = root:gsub("\\", "/"):gsub("/$", "")
+
+        if categoryName == MapController.NormalPalSelectedCategory and type(marker) == "table" then
+            local iconPath = tostring(marker.IconPath or "")
+            local textureName = iconPath:match("/([^/%.]+)%.[^%.]+$") or iconPath:match("/([^/]+)$")
+            if textureName and textureName ~= "" then
+                local palIconDir = tostring(diskFallback.PalIconNormalRelativePath or "PalIcon/Normal"):gsub("\\", "/"):gsub("^/", ""):gsub("/$", "")
+                addFile(root .. "/" .. palIconDir .. "/" .. textureName .. ".png", "disk-marker-IconPath")
+            end
+        end
+
+        local byCategory = diskFallback.TextureByCategory or {}
+        local categoryRelativePath = byCategory[categoryName]
+        if categoryRelativePath and tostring(categoryRelativePath) ~= "" then
+            addFile(root .. "/" .. tostring(categoryRelativePath):gsub("\\", "/"):gsub("^/", ""), "disk-category")
+        end
+    end
+
+    local function addMarkerTexturePaths()
+        if type(marker) ~= "table" then return end
+        local markerTextureFields = {
+            "IconPath",
+            "TexturePath",
+            "IconTexturePath",
+            "PalIconPath",
+            "IconTexture",
+            "Texture"
+        }
+        for _, fieldName in ipairs(markerTextureFields) do
+            local path = marker[fieldName]
+            if path ~= nil and tostring(path) ~= "" then
+                add(tostring(path), "marker-" .. tostring(fieldName))
+            end
         end
     end
 
@@ -3648,6 +3954,7 @@ local function GetOverlayIconTextureCandidates(categoryName, marker)
     end
 
     local function addPackaged()
+        if replacement.EnablePackagedTextureCandidates ~= true then return end
         addBossPalIcons(bossPalIcons.PackagedBasePath, "packaged-boss-pal")
         if subtype then add(packagedBySubtype[subtype], "packaged-subtype") end
         add(packagedByCategory[categoryName], "packaged-category")
@@ -3655,6 +3962,8 @@ local function GetOverlayIconTextureCandidates(categoryName, marker)
 
     local function addFallback()
         if replacement.FallbackToGameTexturesForTesting ~= true then return end
+        addDiskTexturePaths()
+        addMarkerTexturePaths()
         addBossPalIcons(bossPalIcons.GameBasePath, "game-fallback-boss-pal")
         if subtype then add(fallbackBySubtype[subtype], "game-fallback-subtype") end
         add(fallbackByCategory[categoryName], "game-fallback-category")
@@ -3750,13 +4059,48 @@ local function TrySetBrushFromTexture(imageWidget, texture)
     return false, table.concat(errors, " | ")
 end
 
+function MapController.TrySetWidgetTexture(widget, texture)
+    if not IsValidObject(widget) then return false, "invalid-widget" end
+    if not IsValidObject(texture) then return false, "invalid-texture" end
+
+    local attempts = {
+        {
+            "SetTexture",
+            function()
+                return widget:SetTexture(texture)
+            end
+        },
+        {
+            "Set Texture",
+            function()
+                return widget["Set Texture"](widget, texture)
+            end
+        }
+    }
+
+    local errors = {}
+    for _, attempt in ipairs(attempts) do
+        local label = attempt[1]
+        local ok, result = pcall(attempt[2])
+        if ok then return true, label .. " result=" .. tostring(result) end
+        errors[#errors + 1] = label .. "=" .. tostring(result)
+    end
+
+    return false, table.concat(errors, " | ")
+end
+
 local function ApplyOverlayIconTexture(categoryName, marker, widget)
-    local textureCandidates = GetOverlayIconTextureCandidates(categoryName, marker)
+    local textureCandidates = MapController.GetOverlayIconTextureCandidates(categoryName, marker)
     if #textureCandidates == 0 then return "textureReplacement=disabled-or-unconfigured" end
 
     local loadErrors = {}
+    local function previousCandidateDetail()
+        if #loadErrors == 0 then return "" end
+        return " previous={" .. table.concat(loadErrors, " || ") .. "}"
+    end
+
     for _, textureCandidate in ipairs(textureCandidates) do
-        local texture, textureSource = LoadTextureAsset(textureCandidate.Path)
+        local texture, textureSource = MapController.LoadOverlayTextureCandidate(textureCandidate)
         if IsValidObject(texture) then
             local fieldErrors = {}
             for _, fieldName in ipairs(GetOverlayImageFieldCandidates()) do
@@ -3765,17 +4109,31 @@ local function ApplyOverlayIconTexture(categoryName, marker, widget)
                     local applied, applyDetail = TrySetBrushFromTexture(imageWidget, texture)
                     if applied then
                         return "texture=" .. tostring(textureCandidate.Source) ..
-                            " path=" .. tostring(textureCandidate.Path) ..
+                            " path=" .. tostring(textureCandidate.Path or textureCandidate.FilePath) ..
                             " textureSource=" .. tostring(textureSource) ..
                             " image=" .. tostring(imageSource) ..
-                            " apply=" .. tostring(applyDetail)
+                            " apply=" .. tostring(applyDetail) ..
+                            previousCandidateDetail()
                     end
                     fieldErrors[#fieldErrors + 1] = tostring(imageSource) .. ":" .. tostring(applyDetail)
                 else
                     fieldErrors[#fieldErrors + 1] = tostring(imageSource)
                 end
             end
-            loadErrors[#loadErrors + 1] = tostring(textureCandidate.Source) .. " image-failed={" .. table.concat(fieldErrors, "; ") .. "}"
+
+            local widgetApplied, widgetApplyDetail = MapController.TrySetWidgetTexture(widget, texture)
+            if widgetApplied then
+                return "texture=" .. tostring(textureCandidate.Source) ..
+                    " path=" .. tostring(textureCandidate.Path or textureCandidate.FilePath) ..
+                    " textureSource=" .. tostring(textureSource) ..
+                    " widget=SetTexture" ..
+                    " apply=" .. tostring(widgetApplyDetail) ..
+                    previousCandidateDetail()
+            end
+
+            loadErrors[#loadErrors + 1] = tostring(textureCandidate.Source) ..
+                " widget-failed={" .. tostring(widgetApplyDetail) .. "}" ..
+                " image-failed={" .. table.concat(fieldErrors, "; ") .. "}"
         else
             loadErrors[#loadErrors + 1] = tostring(textureCandidate.Source) .. " load=" .. tostring(textureSource)
         end
@@ -4100,49 +4458,32 @@ local function GetFilterPanelCategorySpecs(panelConfig)
 end
 
 local function GetFilterPanelTextureCandidates(categoryName)
-    local overlayConfig = Config.OverlayMarkers or {}
-    local replacement = overlayConfig.TextureReplacement or {}
-    local packagedByCategory = replacement.TextureByCategory or {}
-    local fallbackByCategory = replacement.GameTextureFallbackByCategory or {}
-    local candidates = {}
-
-    local function add(path, source)
-        if path and path ~= "" then
-            candidates[#candidates + 1] = { Path = path, Source = source }
-        end
-    end
-
-    if replacement.PreferPackagedTextures == true then
-        add(packagedByCategory[categoryName], "packaged-category")
-        if replacement.FallbackToGameTexturesForTesting == true then
-            add(fallbackByCategory[categoryName], "game-fallback-category")
-        end
-    else
-        if replacement.FallbackToGameTexturesForTesting == true then
-            add(fallbackByCategory[categoryName], "game-fallback-category")
-        end
-        add(packagedByCategory[categoryName], "packaged-category")
-    end
-
-    return candidates
+    return MapController.GetOverlayIconTextureCandidates(categoryName, nil)
 end
 
 local function ApplyFilterPanelIconTexture(categoryName, imageWidget, iconSize)
     if not IsValidObject(imageWidget) then return "invalid-image" end
 
     for _, candidate in ipairs(GetFilterPanelTextureCandidates(categoryName)) do
-        local texture, textureSource = LoadTextureAsset(candidate.Path)
+        local texture, textureSource = MapController.LoadOverlayTextureCandidate(candidate)
         if IsValidObject(texture) then
             local ok, detail = TrySetBrushFromTexture(imageWidget, texture)
             if ok then
+                pcall(function() imageWidget:SetVisibility(0) end)
+                pcall(function() imageWidget:SetRenderOpacity(1.0) end)
                 pcall(function()
                     imageWidget.Brush.ImageSize = MakeVector2D(iconSize or 18.0, iconSize or 18.0)
                 end)
-                return tostring(candidate.Source) .. " path=" .. tostring(candidate.Path) .. " source=" .. tostring(textureSource) .. " apply=" .. tostring(detail)
+                return tostring(candidate.Source) .. " path=" .. tostring(candidate.FilePath or candidate.Path) .. " source=" .. tostring(textureSource) .. " apply=" .. tostring(detail)
             end
         end
     end
 
+    pcall(function() imageWidget:SetRenderOpacity(0.0) end)
+    pcall(function() imageWidget:SetVisibility(1) end)
+    pcall(function()
+        imageWidget.Brush.ImageSize = MakeVector2D(0.0, 0.0)
+    end)
     return "texture-not-found"
 end
 
@@ -5221,6 +5562,10 @@ local function TryCreateNativeWorldMapIcon(mapBase, mapBody, worldLocation, setu
     if not hookOk then
         return false, "capture-hook-failed:" .. tostring(hookDetail), nil
     end
+    local beforeSupplyAddresses = nil
+    if options.CaptureExtraSupplyIcons == true then
+        beforeSupplyAddresses = MapController.BuildIconAddressSet(MapController.CollectMapIconObjectsByClass("WBP_Map_IconSupply_C"))
+    end
 
     logStep("find PalLocationPoint_LevelObject class")
     local pointClass = nil
@@ -5276,9 +5621,10 @@ local function TryCreateNativeWorldMapIcon(mapBase, mapBody, worldLocation, setu
 
     local textureDetail = "textureReplacement=skipped"
     if options.TextureCategoryName then
-        logStep("apply texture replacement category=" .. tostring(options.TextureCategoryName))
+        logStep("apply pre-add texture replacement category=" .. tostring(options.TextureCategoryName))
         textureDetail = ApplyOverlayIconTexture(options.TextureCategoryName, options.TextureMarker, icon)
-        logStep("texture replacement detail=" .. tostring(textureDetail))
+        logStep("pre-add texture replacement detail=" .. tostring(textureDetail))
+        MapController.AppendLimitedTextureDiagnostic(options.TextureCategoryName, "pre:" .. tostring(textureDetail))
     end
 
     logStep("call Add Icon By Location")
@@ -5300,7 +5646,19 @@ local function TryCreateNativeWorldMapIcon(mapBase, mapBody, worldLocation, setu
         logStep("presentation detail=" .. tostring(presentationDetail))
     end
 
-    return added, tostring(setupDetail) .. " | " .. tostring(textureDetail) .. " | " .. tostring(addDetail) .. " | " .. tostring(presentationDetail), icon
+    local postTextureDetail = "postTextureReplacement=not-needed"
+
+    local extraIcons = {}
+    if added and beforeSupplyAddresses then
+        extraIcons = MapController.CollectNewSupplyIcons(beforeSupplyAddresses, icon)
+    end
+
+    return added, tostring(setupDetail) ..
+        " | pre:" .. tostring(textureDetail) ..
+        " | " .. tostring(addDetail) ..
+        " | " .. tostring(presentationDetail) ..
+        " | post:" .. tostring(postTextureDetail) ..
+        " | extraSupplyIcons=" .. tostring(#extraIcons), icon, extraIcons
 end
 
 local function BuildOverlayCategoryWorkItems(categoryName, context)
@@ -5391,7 +5749,8 @@ local function CreateOverlayNativeStaticIconForMarker(categoryName, marker, cont
         CallUpdateMapIcon = nativeStaticConfig.CallUpdateMapIcon,
         PreStepLog = nativeStaticConfig.PreStepLog == true,
         TextureCategoryName = categoryName,
-        TextureMarker = marker
+        TextureMarker = marker,
+        CaptureExtraSupplyIcons = false
     }
     if type(nativeStaticConfig.IconScaleByCategory) == "table" then
         iconOptions.IconScale = nativeStaticConfig.IconScaleByCategory[categoryName]
@@ -5400,7 +5759,7 @@ local function CreateOverlayNativeStaticIconForMarker(categoryName, marker, cont
         iconOptions.IconRenderOffset = nativeStaticConfig.IconRenderOffsetByCategory[categoryName]
     end
 
-    local added, detail, icon = TryCreateNativeWorldMapIcon(mapBase, targetMapBody, worldLocation, setupIconType, iconOptions)
+    local added, detail, icon, extraIcons = TryCreateNativeWorldMapIcon(mapBase, targetMapBody, worldLocation, setupIconType, iconOptions)
     if context.LogEachMarker == true or not added then
         AppendOverlayMarkersLog(string.format(
             "Add native static category=%s key=%s setupIconType=%d added=%s detail=%s icon=%s bodySource=%s body=%s staticLoc=(%.1f, %.1f, %.1f) loc=(%.1f, %.1f, %.1f)",
@@ -5422,7 +5781,7 @@ local function CreateOverlayNativeStaticIconForMarker(categoryName, marker, cont
     end
 
     if added then
-        RememberOverlayIcon(categoryName, key, icon)
+        RememberOverlayIcon(categoryName, key, icon, extraIcons)
         return true, detail
     end
     return false, detail
@@ -5486,10 +5845,14 @@ local function StartNextOverlayLazyCategory()
         return
     end
 
+    local function clearLoopCallback()
+        OverlayLazyLoopCallbacks[runId] = nil
+    end
+
     local function runBatch()
-        if state.Done == true then return true end
-        if state.Paused == true then return true end
-        if state.RunId ~= runId then return true end
+        if state.Done == true then clearLoopCallback(); return true end
+        if state.Paused == true then clearLoopCallback(); return true end
+        if state.RunId ~= runId then clearLoopCallback(); return true end
 
         local function doBatch()
             if state.Done == true then return true end
@@ -5559,21 +5922,28 @@ local function StartNextOverlayLazyCategory()
             return false
         end
 
-        local finished = false
-        if ExecuteInGameThread then
-            ExecuteInGameThread(function()
-                doBatch()
-            end)
-        else
-            finished = doBatch()
+        local ok, finished = pcall(doBatch)
+        if not ok then
+            state.Paused = true
+            state.RunId = nil
+            OverlayLazyActiveCategory = nil
+            clearLoopCallback()
+            AppendOverlayMarkersLog("Lazy category batch error category=" .. tostring(categoryName) .. " err=" .. tostring(finished))
+            StartNextOverlayLazyCategory()
+            return true
         end
-        return finished
+        if finished == true then
+            clearLoopCallback()
+        end
+        return finished == true
     end
 
     if LoopAsync then
-        LoopAsync(intervalMs, function()
+        local loopCallback = function()
             return runBatch()
-        end)
+        end
+        OverlayLazyLoopCallbacks[runId] = loopCallback
+        LoopAsync(intervalMs, loopCallback)
     else
         while not runBatch() do end
     end
@@ -5988,7 +6358,8 @@ function MapController.GenerateOverlayMarkers(staticMarkerData, dataState, mapBa
                                 CallUpdateMapIcon = nativeStaticConfig.CallUpdateMapIcon,
                                 PreStepLog = nativeStaticConfig.PreStepLog == true,
                                 TextureCategoryName = categoryName,
-                                TextureMarker = marker
+                                TextureMarker = marker,
+                                CaptureExtraSupplyIcons = false
                             }
                             if type(nativeStaticConfig.IconScaleByCategory) == "table" then
                                 iconOptions.IconScale = nativeStaticConfig.IconScaleByCategory[categoryName]
@@ -5996,7 +6367,7 @@ function MapController.GenerateOverlayMarkers(staticMarkerData, dataState, mapBa
                             if type(nativeStaticConfig.IconRenderOffsetByCategory) == "table" then
                                 iconOptions.IconRenderOffset = nativeStaticConfig.IconRenderOffsetByCategory[categoryName]
                             end
-                            local added, detail, icon = TryCreateNativeWorldMapIcon(mapBase, targetMapBody, worldLocation, setupIconType, iconOptions)
+                            local added, detail, icon, extraIcons = TryCreateNativeWorldMapIcon(mapBase, targetMapBody, worldLocation, setupIconType, iconOptions)
                             attempted = attempted + 1
 
                             AppendOverlayMarkersLog(string.format(
@@ -6019,7 +6390,7 @@ function MapController.GenerateOverlayMarkers(staticMarkerData, dataState, mapBa
 
                             if added then
                                 addedCount = addedCount + 1
-                                RememberOverlayIcon(categoryName, key, icon)
+                                RememberOverlayIcon(categoryName, key, icon, extraIcons)
                             else
                                 skippedCount = skippedCount + 1
                             end
