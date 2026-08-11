@@ -3,9 +3,11 @@ local Config = {
     RefreshRateMs = 250,
     ScanInterval = 2.0,
     MapProbeInterval = 2.0,
-    MapHookRetryMs = 1000,
+    MapHookRetryMs = 250,
+    MapHookActiveProbeSeconds = 1.2,
     MapWidgetHookMode = "polling",
     MapHookPollingLogInterval = 8.0,
+    MapStaleWidgetSuppressSeconds = 600.0,
     EnableMapWidgetProbe = false,
     EnableNativeMapInjection = false,
     EnableNativeMapHookTrace = false,
@@ -172,7 +174,7 @@ local Config = {
             BatchSize = 12,
             BatchIntervalMs = 70,
             LogEachMarker = false,
-            DestroyIconsOnHide = true,
+            DestroyIconsOnHide = false,
             MaxLiveIcons = 1500
         },
         Cleanup = {
@@ -252,7 +254,7 @@ local Config = {
                 Name = "low",
                 Label = "低配",
                 MaxLiveIcons = 900,
-                LazyCreate = { BatchSize = 8, BatchIntervalMs = 90, DestroyIconsOnHide = true },
+                LazyCreate = { BatchSize = 8, BatchIntervalMs = 90, DestroyIconsOnHide = false },
                 MaxPerCategoryByCategory = {
                     PalEgg = 256,
                     FishingSpot = 256,
@@ -271,7 +273,7 @@ local Config = {
                 Name = "standard",
                 Label = "标准",
                 MaxLiveIcons = 1500,
-                LazyCreate = { BatchSize = 12, BatchIntervalMs = 70, DestroyIconsOnHide = true },
+                LazyCreate = { BatchSize = 12, BatchIntervalMs = 70, DestroyIconsOnHide = false },
                 MaxPerCategoryByCategory = {
                     PalEgg = 512,
                     FishingSpot = 512,
@@ -290,7 +292,7 @@ local Config = {
                 Name = "high",
                 Label = "高配",
                 MaxLiveIcons = 5000,
-                LazyCreate = { BatchSize = 24, BatchIntervalMs = 40, DestroyIconsOnHide = true },
+                LazyCreate = { BatchSize = 24, BatchIntervalMs = 40, DestroyIconsOnHide = false },
                 MaxPerCategoryByCategory = {
                     PalEgg = 2048,
                     FishingSpot = 1024,
@@ -309,7 +311,7 @@ local Config = {
                 Name = "full",
                 Label = "全部",
                 MaxLiveIcons = 0,
-                LazyCreate = { BatchSize = 32, BatchIntervalMs = 30, DestroyIconsOnHide = true },
+                LazyCreate = { BatchSize = 32, BatchIntervalMs = 30, DestroyIconsOnHide = false },
                 MaxPerCategoryByCategory = {
                     PalEgg = 999999,
                     FishingSpot = 999999,
@@ -605,6 +607,7 @@ local Config = {
                 RootRelativePath = "Assets/RuntimeTextures",
                 PalIconNormalRelativePath = "PalIcon/Normal",
                 TextureByCategory = {
+                    Boss = "StaticMap/Map/T_icon_compass_Boss_Unknown.png",
                     Chest = "StaticMap/BuildObject/T_icon_buildObject_ItemChest.png",
                     SkillFruit = "StaticMap/BuildObject/T_icon_buildObject_Farm_SkillFruits.png",
                     ResourceNode = "StaticMap/BuildObject/T_icon_buildObject_SkyIslandOrePit.png",
@@ -623,6 +626,10 @@ local Config = {
             },
             BossPalIcons = {
                 Enabled = true,
+                -- Directly applying the game's PalIcon textures can crash the
+                -- Steam Workshop runtime on some machines. Keep this disabled
+                -- until boss portraits are provided by packaged/disk mod assets.
+                EnableGameFallback = false,
                 PackagedBasePath = "/Game/PalRadarPrecursor/UI/Icons/PalIcon/Normal",
                 GameBasePath = "/Game/Pal/Texture/PalIcon/Normal"
             },

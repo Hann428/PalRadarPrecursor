@@ -17,8 +17,14 @@ local LastMapHookFailureLogTime = 0
 local LastMapHookDisabledLogTime = 0
 local LastMapPollingLogTime = 0
 local LastObservedMapBaseKey = nil
+local LastObservedPlayerContextKey = nil
+local SuppressedMapBaseKeys = {}
+local SuppressedMapBaseUntil = 0
 local LastMapStaticPassAt = 0
 local LastMapToggleCleanupAt = 0
+local LastOverlayFilterClickAt = 0
+local MapProbeUntil = 0
+local MapProbeLastFoundAt = 0
 local LastTelemetryTime = 0
 local LastScanTime = 0
 local LastPacket = nil
@@ -61,6 +67,39 @@ local function LogPollingProbe(message)
     if now - LastMapPollingLogTime >= interval then
         LastMapPollingLogTime = now
         print("[+] [UI_MANAGER] " .. tostring(message))
+    end
+end
+
+local function ArmMapProbeWindow(reason, seconds)
+    local now = os.clock()
+    local probeSeconds = tonumber(seconds) or tonumber(Config.MapHookActiveProbeSeconds) or 8.0
+    MapProbeUntil = math.max(MapProbeUntil or 0, now + probeSeconds)
+    print("[+] [UI_MANAGER] Map polling armed: " .. tostring(reason) .. " for " .. tostring(probeSeconds) .. "s")
+end
+
+local function RememberSuppressedMapBaseKeys(signature, seconds)
+    if signature == nil or signature == "" then return end
+
+    local untilTime = os.clock() + (tonumber(seconds) or 6.0)
+    SuppressedMapBaseUntil = math.max(SuppressedMapBaseUntil or 0, untilTime)
+    local count = 0
+    for key in tostring(signature):gmatch("[^|]+") do
+        if key ~= nil and key ~= "" then
+            SuppressedMapBaseKeys[key] = true
+            count = count + 1
+        end
+    end
+    LogPollingProbe("Suppressed stale map widget keys count=" .. tostring(count) .. " seconds=" .. tostring(seconds))
+end
+
+local function GetStaleMapWidgetSuppressSeconds()
+    return tonumber(Config.MapStaleWidgetSuppressSeconds) or 600.0
+end
+
+local function ClearExpiredSuppressedMapBaseKeys()
+    if (SuppressedMapBaseUntil or 0) > 0 and os.clock() >= SuppressedMapBaseUntil then
+        SuppressedMapBaseKeys = {}
+        SuppressedMapBaseUntil = 0
     end
 end
 
@@ -110,6 +149,22 @@ local function GetObjectKey(obj)
     if ok and fullName and fullName ~= "" then return tostring(fullName) end
 
     return tostring(obj)
+end
+
+local function FilterSuppressedMapBaseCandidates(candidates)
+    ClearExpiredSuppressedMapBaseKeys()
+    if (SuppressedMapBaseUntil or 0) <= 0 then return candidates end
+
+    local filtered = {}
+    for _, candidate in ipairs(candidates or {}) do
+        local mapBase = candidate.Object or candidate
+        local key = GetObjectKey(mapBase)
+        if not key or SuppressedMapBaseKeys[key] ~= true then
+            filtered[#filtered + 1] = candidate
+        end
+    end
+
+    return filtered
 end
 
 local function GetActiveWorldContext()
@@ -192,7 +247,17 @@ local function RunMapStaticPass(mapBase, source)
     if not IsValidObject(mapBase) then return end
 
     local mapKey = GetObjectKey(mapBase)
-    if mapKey and CompletedMapStaticPassKeys[mapKey] == true then return end
+    if mapKey and CompletedMapStaticPassKeys[mapKey] == true then
+        if Config.OverlayMarkers and Config.OverlayMarkers.Enabled and MapController.EnsureOverlayFilterPanel then
+            local ok, ensured = pcall(function()
+                return MapController.EnsureOverlayFilterPanel(mapBase)
+            end)
+            if not ok or ensured ~= true then
+                CompletedMapStaticPassKeys[mapKey] = nil
+            end
+        end
+        if CompletedMapStaticPassKeys[mapKey] == true then return end
+    end
 
     local dataState = BuildDataState()
     if not dataState or not dataState.PlayerAnchor then
@@ -217,39 +282,128 @@ local function ResetMapInjectionGuards()
     LastObservedMapBaseKey = nil
 end
 
+local function ResetObservedSessionGuards()
+    ResetMapInjectionGuards()
+    LastObservedPlayerContextKey = nil
+end
+
+local function GetLiveMapBaseCandidates()
+    if type(MapController.FindLiveMapBases) == "function" then
+        local ok, candidates = pcall(MapController.FindLiveMapBases)
+        if ok and type(candidates) == "table" then return candidates end
+    end
+
+    local mapBase = MapController.FindLiveMapBase()
+    if IsValidObject(mapBase) then
+        return {
+            { Object = mapBase, ClassName = "legacy-single" }
+        }
+    end
+
+    return {}
+end
+
+local function GetMapBaseCandidateSignature(candidates)
+    local keys = {}
+    for _, candidate in ipairs(candidates or {}) do
+        local mapBase = candidate.Object or candidate
+        local key = GetObjectKey(mapBase)
+        if key then keys[#keys + 1] = key end
+    end
+
+    table.sort(keys)
+    return table.concat(keys, "|")
+end
+
+local function GetMapBaseCandidatesNotInSignature(candidates, previousSignature)
+    if not previousSignature or previousSignature == "" then return candidates end
+
+    local filtered = {}
+    for _, candidate in ipairs(candidates or {}) do
+        local mapBase = candidate.Object or candidate
+        local key = GetObjectKey(mapBase)
+        if key and not tostring(previousSignature):find(key, 1, true) then
+            filtered[#filtered + 1] = candidate
+        end
+    end
+
+    if #filtered > 0 then return filtered end
+    return candidates
+end
+
 local function TryRunMapStaticPassFromLiveWidget(source)
     local contextObject = GetActiveWorldContext()
     if not IsValidObject(contextObject) then
         if LastObservedMapBaseKey ~= nil then
+            RememberSuppressedMapBaseKeys(LastObservedMapBaseKey, GetStaleMapWidgetSuppressSeconds())
             MapController.ResetOverlayUiState("player-context-gone:" .. tostring(source))
-            ResetMapInjectionGuards()
+            ResetObservedSessionGuards()
         end
         return false
     end
 
-    local mapBase = MapController.FindLiveMapBase()
-    if not IsValidObject(mapBase) then
-        if LastObservedMapBaseKey ~= nil then
-            MapController.ResetOverlayUiState("live-map-gone:" .. tostring(source))
+    local playerContextKey = GetObjectKey(contextObject)
+    if playerContextKey and playerContextKey ~= "" then
+        if LastObservedPlayerContextKey ~= nil and playerContextKey ~= LastObservedPlayerContextKey then
+            RememberSuppressedMapBaseKeys(LastObservedMapBaseKey, GetStaleMapWidgetSuppressSeconds())
+            MapController.ResetOverlayUiState("player-context-changed:" .. tostring(source))
             ResetMapInjectionGuards()
+            LastPacket = nil
+            LastScanTime = 0
+            LastObservedPlayerContextKey = playerContextKey
+            ArmMapProbeWindow("player-context-changed", 8.0)
+            LogPollingProbe("Player context changed; skipped stale map widgets for this probe tick.")
+            return false
         end
+        LastObservedPlayerContextKey = playerContextKey
+    end
+
+    local candidates = GetLiveMapBaseCandidates()
+    candidates = FilterSuppressedMapBaseCandidates(candidates)
+    if #candidates <= 0 then
         return false
     end
 
-    local mapKey = GetObjectKey(mapBase)
-    if LastObservedMapBaseKey ~= nil and mapKey ~= nil and mapKey ~= LastObservedMapBaseKey then
+    local mapSignature = GetMapBaseCandidateSignature(candidates)
+    local previousSignature = LastObservedMapBaseKey
+    local signatureChanged = LastObservedMapBaseKey ~= nil and mapSignature ~= "" and mapSignature ~= LastObservedMapBaseKey
+    if signatureChanged then
         MapController.ResetOverlayUiState("live-map-changed:" .. tostring(source))
         ResetMapInjectionGuards()
     end
-    LastObservedMapBaseKey = mapKey
+    LastObservedMapBaseKey = mapSignature
 
-    local ok, err = pcall(function()
-        RunMapStaticPass(mapBase, source)
-    end)
-    if not ok then
-        LogSafeError("map-static-pass:" .. tostring(source), err)
-        return false
+    if #candidates > 1 then
+        LogPollingProbe("Polling map detection found " .. tostring(#candidates) .. " live map widget candidates.")
     end
+
+    local attempted = false
+    -- When stale map widgets reappear, "new to the signature" can actually be
+    -- an old instance. Keep the normal newest-candidate path after resetting.
+    local candidatesToRun = candidates
+    local maxCandidates = Config.MapHookCandidateLimit or 6
+    local startIndex = math.max(1, #candidatesToRun - maxCandidates + 1)
+    if #candidatesToRun > 0 then
+        startIndex = #candidatesToRun
+    end
+    for index = startIndex, #candidatesToRun do
+        local candidate = candidatesToRun[index]
+        local mapBase = candidate.Object or candidate
+        if IsValidObject(mapBase) then
+            local ok, err = pcall(function()
+                RunMapStaticPass(mapBase, tostring(source) .. "#" .. tostring(index))
+            end)
+            if not ok then
+                LogSafeError("map-static-pass:" .. tostring(source) .. "#" .. tostring(index), err)
+            else
+                attempted = true
+                MapProbeUntil = 0
+                break
+            end
+        end
+    end
+
+    if not attempted then return false end
     return true
 end
 
@@ -342,6 +496,8 @@ local function StartMapHookRetryLoop()
     IsMapHookRetryLoopActive = true
     LoopAsync(Config.MapHookRetryMs or 2000, function()
         if not IsRadarActive then return true end
+        local now = os.clock()
+        if now > (MapProbeUntil or 0) then return false end
 
         SafeExecuteInGameThread("map-hook-retry", function()
             if ShouldRegisterMapWidgetHooks() and not IsMapHookRegistered then
@@ -351,6 +507,8 @@ local function StartMapHookRetryLoop()
             if not IsMapHookRegistered then
                 local found = TryRunMapStaticPassFromLiveWidget("poll-live-map-widget")
                 if found then
+                    MapProbeLastFoundAt = os.clock()
+                    MapProbeUntil = 0
                     LogPollingProbe("Polling map detection found a live map widget.")
                 else
                     LogPollingProbe("Polling map detection is waiting for a live map widget.")
@@ -362,8 +520,50 @@ local function StartMapHookRetryLoop()
     end)
 end
 
+local function RegisterOverlayFilterMouseClick(force)
+    local overlayConfig = Config.OverlayMarkers or {}
+    local panelConfig = overlayConfig.FilterPanel or {}
+    if panelConfig.Enabled ~= true or panelConfig.MouseClickEnabled ~= true then return 0 end
+    if RegisterKeyBind == nil or Key == nil then return 0 end
+    if IsOverlayFilterMouseRegistered and force ~= true then return 0 end
+
+    local mouseKey = Key.LEFT_MOUSE_BUTTON or Key.LeftMouseButton or Key.LMB or Key.LeftMouse
+    if not mouseKey then
+        print("[!] [UI_MANAGER] Overlay filter mouse key unavailable.")
+        return 0
+    end
+
+    local ok, err = pcall(function()
+        RegisterKeyBind(mouseKey, function()
+            local now = os.clock()
+            if now - LastOverlayFilterClickAt < 0.12 then return end
+            LastOverlayFilterClickAt = now
+
+            local clickOk, clickErr = pcall(function()
+                if MapController.HandleOverlayFilterPanelClick then
+                    MapController.HandleOverlayFilterPanelClick()
+                end
+            end)
+            if not clickOk then
+                LogSafeError("filter-panel-click", clickErr)
+            end
+        end)
+    end)
+    if ok then
+        IsOverlayFilterMouseRegistered = true
+        print("[+] [UI_MANAGER] Overlay filter mouse click registered.")
+        return 1
+    end
+
+    print("[!] [UI_MANAGER] Overlay filter mouse click failed: " .. tostring(err))
+    return 0
+end
+
 local function RegisterOverlayFilterHotkeys()
-    if IsOverlayFilterHotkeysRegistered then return end
+    if IsOverlayFilterHotkeysRegistered then
+        RegisterOverlayFilterMouseClick(false)
+        return
+    end
 
     local overlayConfig = Config.OverlayMarkers or {}
     local runtimeFilters = overlayConfig.RuntimeFilters or {}
@@ -425,33 +625,7 @@ local function RegisterOverlayFilterHotkeys()
         end)
     end, "ToggleAll")
 
-    local panelConfig = overlayConfig.FilterPanel or {}
-    if panelConfig.Enabled == true and panelConfig.MouseClickEnabled == true and not IsOverlayFilterMouseRegistered then
-        local mouseKey = Key.LEFT_MOUSE_BUTTON or Key.LeftMouseButton or Key.LMB or Key.LeftMouse
-        if mouseKey then
-            local ok, err = pcall(function()
-                RegisterKeyBind(mouseKey, function()
-                    local clickOk, clickErr = pcall(function()
-                        if MapController.HandleOverlayFilterPanelClick then
-                            MapController.HandleOverlayFilterPanelClick()
-                        end
-                    end)
-                    if not clickOk then
-                        LogSafeError("filter-panel-click", clickErr)
-                    end
-                end)
-            end)
-            if ok then
-                IsOverlayFilterMouseRegistered = true
-                registered = registered + 1
-                print("[+] [UI_MANAGER] Overlay filter mouse click registered.")
-            else
-                print("[!] [UI_MANAGER] Overlay filter mouse click failed: " .. tostring(err))
-            end
-        else
-            print("[!] [UI_MANAGER] Overlay filter mouse key unavailable.")
-        end
-    end
+    registered = registered + RegisterOverlayFilterMouseClick(false)
 
     if registered > 0 then
         IsOverlayFilterHotkeysRegistered = true
@@ -462,8 +636,8 @@ local function RegisterMapToggleCleanupKey()
     if IsMapToggleCleanupRegistered then return end
     local overlayConfig = Config.OverlayMarkers or {}
     local cleanupConfig = overlayConfig.Cleanup or {}
-    if cleanupConfig.RegisterMapToggleKey == false then return end
     if RegisterKeyBind == nil or Key == nil then return end
+    local doCleanup = cleanupConfig.RegisterMapToggleKey ~= false
 
     local keyValue = Key.M
     if not keyValue then
@@ -476,11 +650,12 @@ local function RegisterMapToggleCleanupKey()
             SafeExecuteInGameThread("map-toggle-cleanup", function()
                 local now = os.clock()
                 if now - LastMapToggleCleanupAt < 0.5 then return end
-                if now - LastMapStaticPassAt < 0.75 then return end
                 LastMapToggleCleanupAt = now
 
-                ResetMapInjectionGuards()
-                if MapController.PrepareForMapToggle then
+                ArmMapProbeWindow("key-M", Config.MapHookActiveProbeSeconds or 1.2)
+                RegisterOverlayFilterMouseClick(false)
+
+                if doCleanup and now - LastMapStaticPassAt >= 0.75 and MapController.PrepareForMapToggle then
                     MapController.PrepareForMapToggle("key-M")
                 end
             end)
@@ -489,7 +664,7 @@ local function RegisterMapToggleCleanupKey()
 
     if ok then
         IsMapToggleCleanupRegistered = true
-        print("[+] [UI_MANAGER] Map toggle cleanup key registered: M")
+        print("[+] [UI_MANAGER] Map toggle probe key registered: M")
     else
         print("[!] [UI_MANAGER] Map toggle cleanup key failed: " .. tostring(err))
     end

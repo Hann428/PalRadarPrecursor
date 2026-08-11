@@ -1,4 +1,11 @@
 探索者的遗产（Explorer's Legacy / PalRadarPrecursor）说明
+版本：v1.0.2
+
+v1.0.2 更新摘要：
+1. 修复 Steam 创意工坊订阅版按 M 打开地图和筛选面板生命周期相关问题。
+2. 修复地图关闭后再次打开、退回主菜单后再次进入时筛选面板可能失效的问题。
+3. 恢复首领头像、普通帕鲁头像、宝箱、技能果树、帕鲁蛋、钓鱼/打捞点等运行时图标。
+4. 优化图标加载、取消加载和清理逻辑，减少残留图标、重复计数和交互失效风险。
 
 一、MOD 功能
 
@@ -66,4 +73,3 @@ D:\Steam\steamapps\common\Palworld\Pal\Binaries\Win64\Mods\PalRadarPrecursor
    PalRadarPrecursor : 0
 2. 或删除 PalRadarPrecursor 文件夹。
 3. 如果使用 3777580435 文件夹名，则对应关闭或删除 3777580435。
-

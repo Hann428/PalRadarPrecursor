@@ -5,7 +5,7 @@
 ![Preview](preview.jpg)
 
 [![Steam Workshop](https://img.shields.io/badge/Steam-创意工坊订阅-blue.svg)](https://steamcommunity.com/sharedfiles/filedetails/?id=3777580435)
-[![Version](https://img.shields.io/badge/Version-1.0.1-green.svg)]()
+[![Version](https://img.shields.io/badge/Version-1.0.2-green.svg)]()
 [![Game Version](https://img.shields.io/badge/Palworld-v1.0+-orange.svg)]()
 
 ---
@@ -18,6 +18,15 @@
   - **收集与探索**：技能果树、藏宝图、笔记、帕鲁蛋、钓鱼/打捞点、帕鲁雕像
   - **自然资源**：煤矿、硫磺、石英、天坠矿、世界树矿
   - **生态 NPC**：地下城首领、商人、各类普通帕鲁精确点位
+
+---
+
+## 🧩 v1.0.2 更新
+
+- 修复地图关闭后再次打开、退回主菜单后再次进入时筛选面板可能失效的问题。
+- 恢复并稳定首领头像、普通帕鲁头像、宝箱、技能果树、帕鲁蛋、钓鱼/打捞点等图标显示。
+- 优化图标加载、取消加载和清理逻辑，降低残留图标与重复计数风险。
+- 保留本次游戏内的地图筛选状态；退回标题页或重启游戏后恢复默认状态。
 
 ---
 

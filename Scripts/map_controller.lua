@@ -374,6 +374,29 @@ local function AppendOverlayMarkersLog(text)
     file:close()
 end
 
+local function RemoveOverlayFilterPanelRoot(reason)
+    local removed = false
+    local detail = "no-root"
+    if IsValidObject(OverlayFilterPanelRoot) then
+        local ok, err = pcall(function()
+            if OverlayFilterPanelRoot.RemoveFromParent then
+                OverlayFilterPanelRoot:RemoveFromParent()
+                removed = true
+                detail = "removed"
+            else
+                detail = "no-remove-function"
+            end
+        end)
+        if not ok then
+            detail = tostring(err)
+        end
+    end
+    AppendOverlayMarkersLog("Overlay filter panel root cleanup reason=" .. tostring(reason or "unspecified")
+        .. " removed=" .. tostring(removed)
+        .. " detail=" .. tostring(detail))
+    return removed
+end
+
 local function UnwrapParam(value)
     if value == nil then return nil end
 
@@ -969,10 +992,35 @@ function MapController.FindLiveMapBody()
 end
 
 function MapController.FindLiveMapBase()
+    local candidates = MapController.FindLiveMapBases and MapController.FindLiveMapBases() or nil
+    if type(candidates) == "table" and #candidates > 0 then
+        local first = candidates[1]
+        return first.Object, first.ClassName or "WBP_Map_Base_C", nil
+    end
+
+    return nil, "not-found", nil
+end
+
+function MapController.FindLiveMapBases()
     local classNames = {
         "WBP_Map_Base_C",
         "WBP_Map_Base"
     }
+    local candidates = {}
+    local seen = {}
+
+    local function addCandidate(obj, className, sourceIndex)
+        if not IsValidObject(obj) then return end
+        local address = GetObjectAddress(obj)
+        if address and seen[address] == true then return end
+        if address then seen[address] = true end
+        candidates[#candidates + 1] = {
+            Object = obj,
+            ClassName = className,
+            Address = address,
+            SourceIndex = sourceIndex
+        }
+    end
 
     for _, className in ipairs(classNames) do
         local objects = nil
@@ -981,10 +1029,8 @@ function MapController.FindLiveMapBase()
         end)
 
         if objects then
-            for _, obj in ipairs(objects) do
-                if IsValidObject(obj) then
-                    return obj, className, objects
-                end
+            for index, obj in ipairs(objects) do
+                addCandidate(obj, className, index)
             end
         end
 
@@ -992,12 +1038,10 @@ function MapController.FindLiveMapBase()
         pcall(function()
             first = FindFirstOf(className)
         end)
-        if IsValidObject(first) then
-            return first, className, nil
-        end
+        addCandidate(first, className, "first")
     end
 
-    return nil, "not-found", nil
+    return candidates
 end
 
 function MapController.ProbeMapBodyBridge()
@@ -2609,6 +2653,27 @@ function MapController.RemoveOverlayIconWidget(icon)
     return ok == true
 end
 
+local function RemoveOverlayIconRecords(reason)
+    local removedIcons = 0
+    local recordCount = #OverlayIconRecords
+
+    for _, record in ipairs(OverlayIconRecords) do
+        if MapController.RemoveOverlayIconWidget(record.Icon) then
+            removedIcons = removedIcons + 1
+        end
+        for _, extraIcon in ipairs(record.ExtraIcons or {}) do
+            if MapController.RemoveOverlayIconWidget(extraIcon) then
+                removedIcons = removedIcons + 1
+            end
+        end
+    end
+
+    AppendOverlayMarkersLog("Overlay icon records cleanup reason=" .. tostring(reason or "unspecified")
+        .. " removedIcons=" .. tostring(removedIcons)
+        .. " records=" .. tostring(recordCount))
+    return removedIcons
+end
+
 function MapController.CollectMapIconObjectsByClass(className)
     local icons = {}
     local objects = nil
@@ -2689,6 +2754,29 @@ function MapController.CountOverlayLiveIcons()
     return count
 end
 
+function MapController.CountOverlayPrimaryIconsForCategory(categoryName)
+    local count = 0
+    for _, record in ipairs(OverlayIconRecords) do
+        if record.Category == categoryName and IsValidObject(record.Icon) then
+            count = count + 1
+        end
+    end
+    return count
+end
+
+function MapController.CountOverlayRuntimeVisibleIcons()
+    local count = 0
+    for _, record in ipairs(OverlayIconRecords) do
+        if IsOverlayCategoryRuntimeVisible(record.Category) then
+            if IsValidObject(record.Icon) then count = count + 1 end
+            for _, extraIcon in ipairs(record.ExtraIcons or {}) do
+                if IsValidObject(extraIcon) then count = count + 1 end
+            end
+        end
+    end
+    return count
+end
+
 function MapController.DestroyOverlayIconsForCategory(categoryName)
     if not categoryName or categoryName == "" then return 0, 0 end
 
@@ -2754,12 +2842,21 @@ end
 function MapController.ResetOverlayUiState(reason)
     MapController.OverlayLazyRunSerial = (MapController.OverlayLazyRunSerial or 0) + 1
 
+    local reasonText = tostring(reason or "")
+    local isWorldSessionReset = reasonText:find("player%-context%-gone", 1, false) ~= nil
+        or reasonText:find("player%-context%-changed", 1, false) ~= nil
+        or reasonText:find("main%-menu", 1, false) ~= nil
+        or reasonText:find("world%-context%-gone", 1, false) ~= nil
+
     for _, state in pairs(OverlayLazyCategoryState) do
         if type(state) == "table" then
             state.Paused = true
             state.RunId = nil
         end
     end
+
+    RemoveOverlayIconRecords(reasonText)
+    RemoveOverlayFilterPanelRoot(reasonText)
 
     OverlayIconRecords = {}
     OverlayFilterPanelMapAddresses = {}
@@ -2780,7 +2877,31 @@ function MapController.ResetOverlayUiState(reason)
     OverlayLazyActiveCategory = nil
     OverlayInjectedMapBodyAddresses = {}
 
+    if isWorldSessionReset then
+        OverlayRuntimeFilterState = {}
+        OverlayNativeFilterState = {}
+        MapController.NormalPalSelector.MenuExpanded = false
+        AppendOverlayMarkersLog("Overlay runtime filters reset reason=" .. reasonText)
+    end
+
     AppendOverlayMarkersLog("Overlay UI state reset reason=" .. tostring(reason or "unspecified"))
+end
+
+function MapController.ResetOverlayFilterPanelState(reason)
+    RemoveOverlayFilterPanelRoot(reason)
+
+    OverlayFilterPanelMapAddresses = {}
+    OverlayFilterPanelRows = {}
+    OverlayFilterPanelRoot = nil
+    OverlayFilterPanelHeader = nil
+    OverlayFilterPanelBody = nil
+    OverlayFilterPanelWidgetTree = nil
+    OverlayFilterPanelContainer = nil
+    OverlayFilterPanelPanelConfig = nil
+    OverlayFilterPanelExpanded = false
+    OverlayFilterPanelProgressText = nil
+    MapController.NormalPalSelector.MenuExpanded = false
+    AppendOverlayMarkersLog("Overlay filter panel state reset reason=" .. tostring(reason or "unspecified"))
 end
 
 function MapController.PrepareForMapToggle(reason)
@@ -2793,25 +2914,9 @@ function MapController.PrepareForMapToggle(reason)
 
     MapController.OverlayLazyRunSerial = (MapController.OverlayLazyRunSerial or 0) + 1
 
-    local removedIcons = 0
-    for _, record in ipairs(OverlayIconRecords) do
-        if MapController.RemoveOverlayIconWidget(record.Icon) then
-            removedIcons = removedIcons + 1
-        end
-        for _, extraIcon in ipairs(record.ExtraIcons or {}) do
-            if MapController.RemoveOverlayIconWidget(extraIcon) then
-                removedIcons = removedIcons + 1
-            end
-        end
-    end
+    local removedIcons = RemoveOverlayIconRecords(reason or "map-toggle-pre-cleanup")
 
-    local removedPanel = false
-    if IsValidObject(OverlayFilterPanelRoot) then
-        local ok = pcall(function()
-            if OverlayFilterPanelRoot.RemoveFromParent then OverlayFilterPanelRoot:RemoveFromParent() end
-        end)
-        removedPanel = ok == true
-    end
+    local removedPanel = RemoveOverlayFilterPanelRoot(reason or "map-toggle-pre-cleanup")
 
     AppendOverlayMarkersLog("Map toggle pre-cleanup reason=" .. tostring(reason or "unspecified")
         .. " removedIcons=" .. tostring(removedIcons)
@@ -2836,6 +2941,28 @@ function MapController.ShouldDestroyOverlayIconsOnHide(overlayConfig, lazyConfig
         end
     end
     return lazyConfig.DestroyIconsOnHide == true
+end
+
+local function ResumeRuntimeVisibleOverlayLazyCategories(reason)
+    local resumed = 0
+    for categoryName, state in pairs(OverlayLazyCategoryState) do
+        if type(state) == "table"
+            and state.Done ~= true
+            and IsOverlayCategoryRuntimeVisible(categoryName)
+            and OverlayLazyActiveCategory ~= categoryName
+        then
+            EnsureOverlayCategoryIconsGenerated(categoryName)
+            resumed = resumed + 1
+        end
+    end
+
+    if resumed > 0 then
+        AppendOverlayMarkersLog("Runtime visible lazy categories resumed reason=" .. tostring(reason or "unspecified")
+            .. " count=" .. tostring(resumed)
+            .. " visibleLive=" .. tostring(MapController.CountOverlayRuntimeVisibleIcons())
+            .. " live=" .. tostring(MapController.CountOverlayLiveIcons()))
+    end
+    return resumed
 end
 
 function MapController.SetOverlayCategoryVisibility(categoryName, isVisible)
@@ -2873,6 +3000,10 @@ function MapController.SetOverlayCategoryVisibility(categoryName, isVisible)
         end
     end
 
+    if not visible then
+        ResumeRuntimeVisibleOverlayLazyCategories("category-off-" .. tostring(categoryName))
+    end
+
     AppendOverlayMarkersLog("Runtime filter category=" .. tostring(categoryName) .. " visible=" .. tostring(visible) .. " changed=" .. tostring(changed) .. " stale=" .. tostring(stale))
     RefreshOverlayFilterPanelCategory(categoryName)
     return changed, stale
@@ -2899,13 +3030,38 @@ function MapController.NormalizePalId(value)
     if value == nil then return nil end
     local palId = tostring(value)
     if palId == "" then return nil end
-    palId = palId:gsub("^BOSS_", "")
-    palId = palId:gsub("^GYM_", "")
-    palId = palId:gsub("^RAID_", "")
-    palId = palId:gsub("^Quest_[^_]+_", "")
-    palId = palId:gsub("_Tower$", "")
-    palId = palId:gsub("_Oilrig$", "")
-    palId = palId:gsub("_Raid$", "")
+    if palId:sub(1, 5) == "BOSS_" then
+        palId = palId:sub(6)
+    elseif palId:sub(1, 4) == "GYM_" then
+        palId = palId:sub(5)
+    elseif palId:sub(1, 5) == "RAID_" then
+        palId = palId:sub(6)
+    else
+        if palId:sub(1, 6) == "Quest_" then
+            local firstSep = nil
+            local secondSep = nil
+            for i = 7, #palId do
+                if palId:sub(i, i) == "_" then
+                    if firstSep == nil then
+                        firstSep = i
+                    else
+                        secondSep = i
+                        break
+                    end
+                end
+            end
+            if secondSep ~= nil and secondSep < #palId then
+                palId = palId:sub(secondSep + 1)
+            end
+        end
+    end
+    if palId:sub(-6) == "_Tower" then
+        palId = palId:sub(1, #palId - 6)
+    elseif palId:sub(-7) == "_Oilrig" then
+        palId = palId:sub(1, #palId - 7)
+    elseif palId:sub(-5) == "_Raid" then
+        palId = palId:sub(1, #palId - 5)
+    end
     if palId == "" then return nil end
     return palId
 end
@@ -3367,9 +3523,7 @@ function MapController.CycleOverlayLimitProfile()
 
     local categoriesToRefresh = BuildOverlayToggleCategoryList(overlayConfig)
     for _, categoryName in ipairs(categoriesToRefresh) do
-        if IsOverlayCategoryRuntimeVisible(categoryName) then
-            MapController.DestroyOverlayIconsForCategory(categoryName)
-        end
+        MapController.DestroyOverlayIconsForCategory(categoryName)
     end
     for _, categoryName in ipairs(categoriesToRefresh) do
         if IsOverlayCategoryRuntimeVisible(categoryName) then
@@ -3635,9 +3789,11 @@ local function GetBossPalIconIds(marker)
     local function addPalId(value)
         if not value or value == "" then return end
         local palId = tostring(value)
+        local normalized = MapController.NormalizePalId(palId)
         local withoutBossPrefix = palId:gsub("^BOSS_", "")
 
         local candidates = {
+            normalized,
             withoutBossPrefix,
             palId
         }
@@ -3655,6 +3811,10 @@ local function GetBossPalIconIds(marker)
         end
     end
     addPalId(marker.Name)
+    addPalId(marker.PalId)
+    addPalId(marker.CharacterId)
+    addPalId(marker.OriginalCharacterId)
+    addPalId(marker.Id)
 
     return result
 end
@@ -3908,11 +4068,16 @@ function MapController.GetOverlayIconTextureCandidates(categoryName, marker)
         if root == "" then return end
         root = root:gsub("\\", "/"):gsub("/$", "")
 
-        if categoryName == MapController.NormalPalSelectedCategory and type(marker) == "table" then
+        if (categoryName == "Boss" or categoryName == MapController.NormalPalSelectedCategory) and type(marker) == "table" then
+            local palIconDir = tostring(diskFallback.PalIconNormalRelativePath or "PalIcon/Normal"):gsub("\\", "/"):gsub("^/", ""):gsub("/$", "")
+            for _, palId in ipairs(GetBossPalIconIds(marker)) do
+                local textureName = "T_" .. tostring(palId) .. "_icon_normal"
+                addFile(root .. "/" .. palIconDir .. "/" .. textureName .. ".png", "disk-boss-pal:" .. tostring(palId))
+            end
+
             local iconPath = tostring(marker.IconPath or "")
             local textureName = iconPath:match("/([^/%.]+)%.[^%.]+$") or iconPath:match("/([^/]+)$")
             if textureName and textureName ~= "" then
-                local palIconDir = tostring(diskFallback.PalIconNormalRelativePath or "PalIcon/Normal"):gsub("\\", "/"):gsub("^/", ""):gsub("/$", "")
                 addFile(root .. "/" .. palIconDir .. "/" .. textureName .. ".png", "disk-marker-IconPath")
             end
         end
@@ -3964,7 +4129,9 @@ function MapController.GetOverlayIconTextureCandidates(categoryName, marker)
         if replacement.FallbackToGameTexturesForTesting ~= true then return end
         addDiskTexturePaths()
         addMarkerTexturePaths()
-        addBossPalIcons(bossPalIcons.GameBasePath, "game-fallback-boss-pal")
+        if bossPalIcons.EnableGameFallback == true then
+            addBossPalIcons(bossPalIcons.GameBasePath, "game-fallback-boss-pal")
+        end
         if subtype then add(fallbackBySubtype[subtype], "game-fallback-subtype") end
         add(fallbackByCategory[categoryName], "game-fallback-category")
     end
@@ -4560,7 +4727,7 @@ local function RefreshOverlayFilterPanelRow(record)
         local overlayConfig = Config.OverlayMarkers or {}
         local label = tostring(record.Label or "档位")
         local profileLabel = MapController.GetOverlayActiveLimitProfileLabel(overlayConfig)
-        local liveCount = MapController.CountOverlayLiveIcons()
+        local liveCount = MapController.CountOverlayRuntimeVisibleIcons()
         local profile = MapController.GetOverlayActiveLimitProfile(overlayConfig)
         local maxLiveIcons = 0
         if type(profile) == "table" then
@@ -4906,7 +5073,14 @@ function MapController.EnsureOverlayFilterPanel(mapBase)
     end
 
     local address = GetObjectAddress(mapBase)
-    if address and OverlayFilterPanelMapAddresses[address] then return true end
+    if address and OverlayFilterPanelMapAddresses[address] then
+        if IsValidObject(OverlayFilterPanelRoot)
+            and type(OverlayFilterPanelHeader) == "table"
+            and IsValidObject(OverlayFilterPanelHeader.Button) then
+            return true
+        end
+        OverlayFilterPanelMapAddresses[address] = nil
+    end
 
     local widgetTree = nil
     pcall(function()
@@ -5876,14 +6050,18 @@ local function StartNextOverlayLazyCategory()
 
             local count = 0
             while count < batchSize and state.Index <= total do
-                if maxLiveIcons > 0 and MapController.CountOverlayLiveIcons() >= maxLiveIcons then
+                local visibleLiveIcons = MapController.CountOverlayRuntimeVisibleIcons()
+                if maxLiveIcons > 0 and visibleLiveIcons >= maxLiveIcons then
                     state.Paused = true
                     state.RunId = nil
                     OverlayLazyActiveCategory = nil
                     OverlayLazyQueue = {}
                     OverlayLazyQueued = {}
                     SetOverlayFilterPanelProgress(string.format("PalRadar limit %d icons", maxLiveIcons))
-                    AppendOverlayMarkersLog("Lazy creation paused: live icon limit reached category=" .. tostring(categoryName) .. " live=" .. tostring(MapController.CountOverlayLiveIcons()) .. " limit=" .. tostring(maxLiveIcons))
+                    AppendOverlayMarkersLog("Lazy creation paused: visible live icon limit reached category=" .. tostring(categoryName)
+                        .. " visibleLive=" .. tostring(visibleLiveIcons)
+                        .. " live=" .. tostring(MapController.CountOverlayLiveIcons())
+                        .. " limit=" .. tostring(maxLiveIcons))
                     return true
                 end
                 local marker = state.Items[state.Index]
@@ -5959,6 +6137,11 @@ EnsureOverlayCategoryIconsGenerated = function(categoryName)
     local state = OverlayLazyCategoryState[categoryName]
     if state and state.Done == true then return true end
     if state and state.Paused == true then state.Paused = false end
+    if not state and MapController.CountOverlayPrimaryIconsForCategory(categoryName) > 0 then
+        AppendOverlayMarkersLog("Lazy category reused existing icon records category=" .. tostring(categoryName)
+            .. " records=" .. tostring(MapController.CountOverlayPrimaryIconsForCategory(categoryName)))
+        return true
+    end
     if OverlayLazyQueued[categoryName] == true or OverlayLazyActiveCategory == categoryName then return true end
 
     OverlayLazyQueue[#OverlayLazyQueue + 1] = categoryName
